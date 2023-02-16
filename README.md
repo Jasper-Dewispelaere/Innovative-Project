@@ -1,6 +1,6 @@
 # Dog management App with Flutter
 
-## Project
+## Project Beschrijving
 ### Wat is het?
 
 Een app waarbij je de informatie en alles errond van je hond(en) gemakkelijk kan bijhouden, een soort van digitale honden identiteitskaart.
