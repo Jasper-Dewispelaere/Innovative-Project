@@ -21,5 +21,19 @@ Ik heb gekozen om de app te ontwikkelen met flutter een open source framework do
 
 Nog niet van toepassing op dit moment.
 
+## Roadmap/ Planning
+
+**Week 13/02 - 19/02:** Inspiratie dag + Pitch dag, voorbereidend werk en research flutter
+
+**20/02 - 24/05:** 
+
+- Flutter researchen, documentatie erover bijhouden
+- Applicatie coderen (pagina's aanmaken en functioneel maken)
+- Alles documenteren en bijhouden in een markdown file
+
+**25/05:** Klassikale review
+**26/05 - (Eindpresentatie datum):** Laatste delen afwerken en voorbereiding eindpresentatie
+
+
 ## Bronnenlijst
 - https://docs.flutter.dev/
