@@ -21,6 +21,14 @@ Ik heb gekozen om de app te ontwikkelen met flutter een open source framework do
 
 Nog niet van toepassing op dit moment.
 
+## Uiteindelijke Doelen Demo/Prototype
+
+- Honden kunnen toevoegen + informatie
+- Honden informatie kunnen aanpassen
+- Wandelingen bijhouden
+- Foto's toevoegen, verwijderen
+
+
 ## Roadmap/ Planning
 
 **Week 13/02 - 19/02:** Inspiratie dag + Pitch dag, voorbereidend werk en research flutter
