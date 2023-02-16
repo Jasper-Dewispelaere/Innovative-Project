@@ -1,16 +1,25 @@
-# Naam van jouw project
+# Dog management App with Flutter
 
 ## Project
-Flutter applicatie
+### Wat is het?
+
+Een app waarbij je de informatie en alles errond van je hond(en) gemakkelijk kan bijhouden, een soort van digitale honden identiteitskaart.
+Zoals: naam, ras, wanneer geboren, medische informatie, foto's. 
+Op de app kan je ook bijhouden wanneer je bent gaan wandelen met de hond(en), die je dan kan bijhouden op een kalender en een wekelijks overzicht.
+
+### Hoe kom je hierbij?
+
+Ik heb zelf thuis honden en al die hun belangrijke informatie die je soms in nood nodig hebt staat op papier en heb je bijna nooit op zak bij, want je weet nooit als er iets gebeurt en je het nodig hebt. 
+Alsook de wandelingen zijn handig om zo bij te houden zodat je een snel en duidelijk overzicht hebt hoe vaak ze al zijn buiten geweest.
+De app zal ook een 'foto dump' bevatten waarbij je alle foto's van je honden kan bijhouden en ze niet overal op je gsm staan, want iedereen neemt krijg foto's van hun huisdieren.
+
+### Welke technologie?
+
+Ik heb gekozen om de app te ontwikkelen met flutter een open source framework door Google waarbij je gemakkelijk en mooie multi-platform applicaties kan ontwikkelen, is ook heel gemakkelijk om te deployen op verschillende platformen.
 
 ## Extra info
-Plaats hier de nodig informatie om het
-project te kunnen uitvoeren:
 
-- API keys of nodige secrets
-- Logingegevens
-- Database configuraties
-- ...
+Nog niet van toepassing op dit moment.
 
 ## Bronnenlijst
-- https://docs.flutter.dev/	
+- https://docs.flutter.dev/
