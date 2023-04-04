@@ -23,7 +23,57 @@ class _DogOverviewState extends State<DogOverview> {
       ),
       body: Column(
         children: [
-          Image.asset('images/')
+          Container(
+            margin: const EdgeInsets.all(10),
+            child: const Text(
+              'Amy',
+              style: TextStyle(fontSize: 50),
+            ),
+          ),
+          Image.asset(
+            'images/amy.jpg',
+            width: 260,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Divider(
+            color: Colors.black,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              debugPrint('Elevated Button');
+            },
+            child: const Text('Elvated'),
+          ),
+          OutlinedButton(
+            onPressed: () {
+              debugPrint('Outlined Button');
+            },
+            child: const Text('Outlined'),
+          ),
+          TextButton(
+            onPressed: () {
+              debugPrint('Text Button');
+            },
+            child: const Text('Text button'),
+          ),
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: (){
+              debugPrint('This is pressed');
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(
+                  Icons.local_fire_department,
+                  color: Colors.red,
+                ),
+                Text('Row'),
+              ],
+            ),
+          )
         ],
       ),
     );
