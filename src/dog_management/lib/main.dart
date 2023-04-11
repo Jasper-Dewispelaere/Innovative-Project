@@ -1,3 +1,4 @@
+import 'package:dog_management/add_dog.dart';
 import 'package:dog_management/home_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -69,7 +70,13 @@ class _RootPageState extends State<RootPage> {
       body: const HomePage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          debugPrint('Floating Action Button');
+          Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return const AddDog();
+                },
+              ),
+            );
         },
         child: const Icon(Icons.add),
       ),
