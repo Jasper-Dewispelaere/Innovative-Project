@@ -1,14 +1,23 @@
+import 'dart:convert';
+
 import 'package:dog_management/add_dog.dart';
 import 'package:dog_management/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'dart:async';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+
+import 'models/dog.dart';
 //import 'package:path_provider/path_provider.dart';
 
 void main() {
   runApp(const MyApp());
+
+  List<Dog> dogs = [Dog('Amy', 'Jack Russel', 'Female', DateTime.now(), 'White'), Dog('Fonzie', 'Jack Russel', 'Male', DateTime.now(), 'Black and White')];
+
+  String jsonDog = jsonEncode(dogs);
+  print(jsonDog);
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +40,7 @@ class RootPage extends StatefulWidget {
   State<RootPage> createState() => _RootPageState();
 }
 
-class Dog {
+/*class Dog {
   final String name;
   final Image picture;
   final String breed;
@@ -57,7 +66,7 @@ class Dog {
         'date Of Birth': dateOfBirth,
         'color': color,
       };
-}
+}*/
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
@@ -67,20 +76,20 @@ class _RootPageState extends State<RootPage> {
       appBar: AppBar(
         title: const Text('Dog Management'),
       ),
-      body: const HomePage(),
+      body: const HomePage(),    
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return const AddDog();
-                },
-              ),
-            );
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return const AddDog();
+              },
+            ),
+          );
         },
         child: const Icon(Icons.add),
       ),
-      bottomNavigationBar: NavigationBar(
+      /*bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
@@ -91,7 +100,7 @@ class _RootPageState extends State<RootPage> {
           });
         },
         selectedIndex: currentPage,
-      ),
+      ),*/
     );
   }
 }
