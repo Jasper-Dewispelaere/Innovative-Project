@@ -1,6 +1,11 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+import 'models/dog.dart';
 
 class AddDog extends StatefulWidget {
   const AddDog({super.key});
@@ -10,10 +15,20 @@ class AddDog extends StatefulWidget {
 }
 
 class _AddDogState extends State<AddDog> {
-  final textController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  //TextControllers form
+  final textController = TextEditingController();
+  final nameController = TextEditingController();
+  final breedController = TextEditingController();
+  final sexController = TextEditingController();
+  final dateOfBirthController = TextEditingController();
+  final colorController = TextEditingController();
+
   String text = "";
+  Dog newDog = Dog("", "", "", DateTime.now(), "");
   DateTime date = DateTime.now();
+  XFile? _image;
+  final ImagePicker picker = ImagePicker();
 
   Future<void> createFile(String text) async {
     //provides directory path.
@@ -30,6 +45,21 @@ class _AddDogState extends State<AddDog> {
       text = await file.readAsString();
     } catch (e) {
       debugPrint('exception');
+    }
+  }
+
+  //for the image, can upload from camera or from gallery
+  Future _pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+      XFile? img = XFile(image.path);
+      setState(() {
+        _image = img;
+
+      });
+    } on PlatformException catch (e) {
+      print(e);
     }
   }
 
@@ -61,6 +91,13 @@ class _AddDogState extends State<AddDog> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a name';
+                    }
+                    return null;
+                  },
+                  controller: nameController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.pets),
                     hintText: 'Enter your dog\'s name',
@@ -68,6 +105,13 @@ class _AddDogState extends State<AddDog> {
                   ),
                 ),
                 TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a breed';
+                    }
+                    return null;
+                  },
+                  controller: breedController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.favorite),
                     hintText: 'Enter your dog\'s breed',
@@ -75,6 +119,7 @@ class _AddDogState extends State<AddDog> {
                   ),
                 ),
                 TextFormField(
+                  controller: sexController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.male),
                     hintText: 'Select your dog\'s sex',
@@ -82,7 +127,7 @@ class _AddDogState extends State<AddDog> {
                   ),
                 ),
                 TextFormField(
-                  controller: TextEditingController(text: '${date.day}/${date.month}/${date.year}'),
+                  controller: dateOfBirthController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.calendar_month),
                     hintText: 'Select the Date of Birth',
@@ -94,21 +139,54 @@ class _AddDogState extends State<AddDog> {
                         initialDate: date,
                         firstDate: DateTime(1980),
                         lastDate: date);
-                        if(newDateOfBirth == null) return;
-                        setState(() => date = newDateOfBirth);
+                    if (newDateOfBirth != null) {
+                      String formattedDate =
+                          DateFormat('yyyy-MM-dd').format(newDateOfBirth);
+                      setState(() {
+                        dateOfBirthController.text =
+                            formattedDate; //set output date to TextField value.
+                      });
+                    } else {
+                      print("Date is not selected");
+                    }
                   },
                 ),
                 TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a color';
+                    }
+                    return null;
+                  },
+                  controller: colorController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.palette),
-                    hintText: 'Select the dog\'s color',
+                    hintText: 'Enter the dog\'s color',
                     labelText: 'Color',
                   ),
                 ),
                 Container(
-                    padding: const EdgeInsets.only(left: 150.0, top: 40.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 165.0, vertical: 50.0),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Dog addDog = Dog(
+                              nameController.text,
+                              breedController.text,
+                              sexController.text,
+                              DateTime.parse(dateOfBirthController.text),
+                              colorController.text);
+
+                          final json = addDog.toJson();
+                          print('JSON: ${addDog.toJson()}');
+
+                          final addedDog = Dog.fromJson(json);
+                          print('${addedDog}');
+
+                          createFile(json.toString());
+                        }
+                      },
                       child: const Text('Add Dog'),
                     )),
               ],

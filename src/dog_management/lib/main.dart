@@ -13,11 +13,6 @@ import 'models/dog.dart';
 
 void main() {
   runApp(const MyApp());
-
-  List<Dog> dogs = [Dog('Amy', 'Jack Russel', 'Female', DateTime.now(), 'White'), Dog('Fonzie', 'Jack Russel', 'Male', DateTime.now(), 'Black and White')];
-
-  String jsonDog = jsonEncode(dogs);
-  print(jsonDog);
 }
 
 class MyApp extends StatelessWidget {
@@ -40,36 +35,22 @@ class RootPage extends StatefulWidget {
   State<RootPage> createState() => _RootPageState();
 }
 
-/*class Dog {
-  final String name;
-  final Image picture;
-  final String breed;
-  final String sex;
-  final DateTime dateOfBirth;
-  final String color;
-
-  Dog(this.name, this.picture, this.breed, this.sex, this.dateOfBirth, this.color);
-
-  Dog.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        picture = json['picture'],
-        breed = json['breed'],
-        sex = json['sex'],
-        dateOfBirth = json['date Of Birth'],
-        color = json['color'];
-
-  Map<String, dynamic> toJson() => {
-        'name': name,
-        'picture': picture,
-        'breed': breed,
-        'sex': sex,
-        'date Of Birth': dateOfBirth,
-        'color': color,
-      };
-}*/
-
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
+
+  @override
+   void initState() {
+    super.initState();
+
+    final dog = Dog('Amy', 'Jack Russel', 'Female', DateTime.now(), 'White');
+
+    final json = dog.toJson();
+    print('JSON: ${dog.toJson()}');
+
+    final newDog = Dog.fromJson(json);
+    print('${newDog}');
+   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -44,7 +44,7 @@ class _DogOverviewState extends State<DogOverview> {
             onPressed: () {
               debugPrint('Elevated Button');
             },
-            child: const Text('Elvated'),
+            child: const Text('Elevated'),
           ),
           OutlinedButton(
             onPressed: () {
