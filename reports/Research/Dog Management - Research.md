@@ -1,6 +1,6 @@
 # Dog Management - Research
 
-## Bronnen
+## Bronnen - flutter
 
 - https://docs.flutter.dev/
   - Meeste informatie van de officiële documentatie gevonden
@@ -14,6 +14,9 @@
 
 
 
+## Bronnen - nodeJS (api)
 
-
-
+- https://nodejs.org/docs/latest/api/
+  - algemene documentatie node js
+- https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm
+  - korte maar hulpvolle tutorial voor de basis van de API
