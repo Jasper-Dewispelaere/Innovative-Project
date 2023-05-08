@@ -1,6 +1,6 @@
 let DOGS = [
     {
-        id: '00000000-0000-0000-0000-000000000001',
+        id: 1,
         name: 'Amy',
         breed: 'Jack Russel',
         sex: 'Female',
@@ -9,7 +9,7 @@ let DOGS = [
         color: 'White'
     },
     {
-        id: '00000000-0000-0000-0000-000000000002',
+        id: 2,
         name: 'Cheddar',
         breed: 'Welsh Corgi',
         sex: 'Male',
@@ -18,7 +18,7 @@ let DOGS = [
         color: 'Brown'
     },
     {
-        id: '00000000-0000-0000-0000-000000000003',
+        id: 3,
         name: 'Fonzie',
         breed: 'Jack Russel',
         sex: 'Male',
@@ -27,7 +27,7 @@ let DOGS = [
         color: 'Black'
     },
     {
-        id: '00000000-0000-0000-0000-000000000004',
+        id: 4,
         name: 'Scooby-Doo',
         breed: 'Great Dane',
         sex: 'Male',
@@ -36,7 +36,7 @@ let DOGS = [
         color: 'Brown'
     },
     {
-        id: '00000000-0000-0000-0000-000000000005',
+        id: 5,
         name: 'Lassie',
         breed: 'Scottish Collie',
         sex: 'Male',

@@ -1,6 +1,16 @@
 {
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
+    "@koa/cors": "^4.0.0",
     "config": "^3.3.9",
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "knex": "^2.4.2",
+    "koa": "^2.14.2",
+    "mysql2": "^3.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
