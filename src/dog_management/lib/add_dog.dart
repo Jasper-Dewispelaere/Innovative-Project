@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dog_management/services/dogMockService.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
@@ -25,10 +26,11 @@ class _AddDogState extends State<AddDog> {
   final colorController = TextEditingController();
 
   String text = "";
-  Dog newDog = Dog("", "", "", DateTime.now(), "");
+  Dog newDog = Dog(0, "", "", "", DateTime.now(), "");
   DateTime date = DateTime.now();
   XFile? _image;
   final ImagePicker picker = ImagePicker();
+  dogMockService dogservice = dogMockService();
 
   Future<void> createFile(String text) async {
     //provides directory path.
@@ -165,59 +167,65 @@ class _AddDogState extends State<AddDog> {
                     labelText: 'Color',
                   ),
                 ),
-                Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 165.0, vertical: 50.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          Dog addDog = Dog(
-                              nameController.text,
-                              breedController.text,
-                              sexController.text,
-                              DateTime.parse(dateOfBirthController.text),
-                              colorController.text);
+                    
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                List<Dog> dogs = dogMockService().getAllDogs(); 
+                                int newId = dogs.length +1;
+                                Dog newDog = Dog(
+                                    newId,
+                                    nameController.text,
+                                    breedController.text,
+                                    sexController.text,
+                                    DateTime.parse(dateOfBirthController.text),
+                                    colorController.text);
 
-                          final json = addDog.toJson();
-                          print('JSON: ${addDog.toJson()}');
-
-                          final addedDog = Dog.fromJson(json);
-                          print('${addedDog}');
-
-                          createFile(json.toString());
-                        }
-                      },
-                      child: const Text('Add Dog'),
-                    )),
+                                dogservice.addDog(newDog);
+                        
+                                // final json = addDog.toJson();
+                                // createFile(json.toString());
+                              }
+                            },
+                            child: const Text('Add Dog'),
+                          ),
+                        ),
+                      ),
+                    ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 10),
-            child: TextField(
-              textAlign: TextAlign.center, //input aligns to center
-              controller: textController,
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          ElevatedButton(
-            child: const Text('Create File'),
-            onPressed: () => createFile(
-                textController.text), //calls createFile() when //button pressed
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              await readFile(); //calls readFile()
-              setState(() {}); //rebuilds the UI.
-            },
-            child: const Text('Read File'),
-          ),
-          const SizedBox(
-            height: 18,
-          ),
-          if (text != null) Text(text)
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 10),
+          //   child: TextField(
+          //     textAlign: TextAlign.center, //input aligns to center
+          //     controller: textController,
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 8,
+          // ),
+          // ElevatedButton(
+          //   child: const Text('Create File'),
+          //   onPressed: () => createFile(
+          //       textController.text), //calls createFile() when //button pressed
+          // ),
+          // ElevatedButton(
+          //   onPressed: () async {
+          //     await readFile(); //calls readFile()
+          //     setState(() {}); //rebuilds the UI.
+          //   },
+          //   child: const Text('Read File'),
+          // ),
+          // const SizedBox(
+          //   height: 18,
+          // ),
+          // if (text != null) Text(text)
         ],
       ),
     );

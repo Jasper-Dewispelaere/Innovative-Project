@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-class DogOverview extends StatefulWidget {
-  const DogOverview({super.key});
+import 'models/dog.dart';
 
-  @override
-  State<DogOverview> createState() => _DogOverviewState();
-}
-
-class _DogOverviewState extends State<DogOverview> {
+class DogOverview extends StatelessWidget {
+  const DogOverview({super.key, required this.dog});
+  
+  final Dog dog;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,57 +21,16 @@ class _DogOverviewState extends State<DogOverview> {
       ),
       body: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.all(10),
-            child: const Text(
-              'Amy',
-              style: TextStyle(fontSize: 50),
+          Center(
+            child: Text(
+              dog.name,
+              style: const TextStyle(fontSize: 50),
             ),
           ),
           Image.asset(
-            'images/amy.jpg',
+            'images/${dog.name}.jpg',
             width: 260,
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Divider(
-            color: Colors.black,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              debugPrint('Elevated Button');
-            },
-            child: const Text('Elevated'),
-          ),
-          OutlinedButton(
-            onPressed: () {
-              debugPrint('Outlined Button');
-            },
-            child: const Text('Outlined'),
-          ),
-          TextButton(
-            onPressed: () {
-              debugPrint('Text Button');
-            },
-            child: const Text('Text button'),
-          ),
-          GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: (){
-              debugPrint('This is pressed');
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(
-                  Icons.local_fire_department,
-                  color: Colors.red,
-                ),
-                Text('Row'),
-              ],
-            ),
-          )
         ],
       ),
     );
