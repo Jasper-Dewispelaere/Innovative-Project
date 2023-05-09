@@ -1,10 +1,14 @@
 let { DOGS } = require('../data/mock-data');
-const getAll = () => {
-	return { items: DOGS, count: DOGS.length };
-}	
+const dogRepository = require('../repository/dog');
 
-const getById = (id) => {  throw new Error("not implemented yet"); }
-const create = ({name, breed, sex, dateOfBirth, image, color}) => {
+const getAll = async () => {
+	debugLog('Fetching all dogs');
+	const items = await dogRepository.findAll();
+	return { items };
+};
+
+const getById = (id) => { throw new Error("not implemented yet"); }
+const create = ({ name, breed, sex, dateOfBirth, image, color }) => {
 	let existingDog;
 	if (dogId) {
 		existingDog = DOGS.find((dog) => dog.id === dogId);
@@ -12,21 +16,21 @@ const create = ({name, breed, sex, dateOfBirth, image, color}) => {
 		if (!existingDog) {
 			getLogger().error(`There is no dog with id ${id}.`, { id });
 		}
-    }
-    const maxId = Math.max(...DOGS.map(i => i.id));
+	}
+	const maxId = Math.max(...DOGS.map(i => i.id));
 	const newDog = {
 		id: maxId + 1,
 		name,
-        breed,
-        sex,
+		breed,
+		sex,
 		dateOfBirth: dateOfBirth.toISOString(),
 		image,
-        color
+		color
 	};
 	DOGS = [...DOGS, newDog];
 	return newDog;
 }
-const updateById = (id, {name, breed, sex, dateOfBirth, image, color}) => {
+const updateById = (id, { name, breed, sex, dateOfBirth, image, color }) => {
 	throw new Error("not implemented yet");
 }
 const deleteById = (id) => {
