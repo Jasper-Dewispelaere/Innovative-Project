@@ -4,31 +4,52 @@ const dogService = require('./service/dog');
 const { initializeData } = require('./data');
 
 async function main() {
-	// logger initialiseren
+    try {
+      const server = await createServer();
+      await server.start();
+  
+      async function onClose() {
+        await server.stop();
+        process.exit(0);
+      }
 
-	await initializeData();
+  
+      process.on('SIGTERM', onClose);
+      process.on('SIGQUIT', onClose);
+    } catch (error){
+      process.exit(-1);
+    }
+  }
+  
+  main();
 
-	// andere code
-}
 
-main();
+// async function main() {
+// 	// logger initialiseren
 
-router.get('/api/dogs', async (ctx) => {
-    logger.info(JSON.stringify(ctx.request));
-    ctx.body = dogService.getAll();
-})
+// 	await initializeData();
 
-router.post('/api/dogs', async (ctx) => {
-    const newDog = dogService.create({
-        ...ctx.request.body, dateOfBirth: new Date(ctx.request.body.date)
-    });
-    ctx.body = newDog;
-})
+// 	// andere code
+// }
 
-router.get('/api/dogs/:id', async (ctx) => {
-	ctx.body = dogService.getById(ctx.params.id);
-})
+// main();
 
-app
-    .use(router.routes())
-    .use(router.allowedMethods());
+// router.get('/api/dogs', async (ctx) => {
+//     logger.info(JSON.stringify(ctx.request));
+//     ctx.body = dogService.getAll();
+// })
+
+// router.post('/api/dogs', async (ctx) => {
+//     const newDog = dogService.create({
+//         ...ctx.request.body, dateOfBirth: new Date(ctx.request.body.date)
+//     });
+//     ctx.body = newDog;
+// })
+
+// router.get('/api/dogs/:id', async (ctx) => {
+// 	ctx.body = dogService.getById(ctx.params.id);
+// })
+
+// app
+//     .use(router.routes())
+//     .use(router.allowedMethods());

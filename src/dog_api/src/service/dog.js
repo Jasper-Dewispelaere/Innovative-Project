@@ -7,7 +7,11 @@ const getAll = async () => {
 	return { items };
 };
 
-const getById = (id) => { throw new Error("not implemented yet"); }
+const getById = (id) => {
+	debugLog(`Fetching dog with id ${id}`);
+	return dogRepository.findById(id);
+  };
+
 const create = ({ name, breed, sex, dateOfBirth, image, color }) => {
 	let existingDog;
 	if (dogId) {
