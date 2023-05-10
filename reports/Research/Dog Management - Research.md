@@ -20,3 +20,5 @@
   - algemene documentatie node js
 - https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm
   - korte maar hulpvolle tutorial voor de basis van de API
+- https://www.youtube.com/watch?v=4Z02Lgx4nS0
+  - Vanilla CRUD nodejs api
