@@ -43,5 +43,14 @@
         "image": "https://static.wikia.nocookie.net/p__/images/2/20/LASSIE.jpg/revision/latest/scale-to-width-down/350?cb=20121112185458&path-prefix=protagonist",
         "color": "White",
         "dateOfBirth": "1954-09-12"
+    },
+    {
+        "name": "Courage",
+        "breed": "Welsh Corgi",
+        "sex": "male",
+        "image": "https://static.wikia.nocookie.net/courage/images/4/46/New_Courage.png/revision/latest?cb=20200912151506",
+        "color": "pink",
+        "dateOfBirth": "2021-10-15",
+        "id": "b4236939-ef90-4f50-8ae6-1a3e59c32870"
     }
 ]
