@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
             let body = await requestBodyparser(req);
             body.id = crypto.randomUUID();
             req.dogs.push(body); 
-            //writeToFile(req.dogs);
+            writeToFile(req.dogs);
             res.writeHead(201, { "Content-Type": "application/json" });
             res.end();
         }
