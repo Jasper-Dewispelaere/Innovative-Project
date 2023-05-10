@@ -1,5 +1,5 @@
 import 'package:dog_management/dog_overview.dart';
-import 'package:dog_management/services/dogMockService.dart';
+import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';
 import 'models/dog.dart';
 
@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _ReadDogsState extends State<HomePage> {
-  List<Dog> dogs = dogMockService().getAllDogs();
+  List<Dog> dogs = DogMockService().getAllDogs();
 
   @override
   Widget build(BuildContext context) {

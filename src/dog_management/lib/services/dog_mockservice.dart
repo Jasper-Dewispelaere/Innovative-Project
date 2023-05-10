@@ -1,6 +1,6 @@
 import 'package:dog_management/models/dog.dart';
 
-class dogMockService{
+class DogMockService{
   var dogs = [
         Dog(1, "Amy", "Jack Russel", "Female", DateTime.parse("2021-10-15"), "White"),
         Dog(2, "Fonzie", "Jack Russel", "Male", DateTime.parse("2019-04-13"), "Black"),
