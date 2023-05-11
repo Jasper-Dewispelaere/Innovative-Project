@@ -8,7 +8,9 @@
   - Basis flutter tutorial die bij de start van het project een goeie basis was
 - https://docs.flutter.dev/cookbook/persistence/reading-writing-files
   - App data bijhouden zonder database
-- https://www.bezkoder.com/dart-flutter-convert-object-to-json-string/
+- https://docs.flutter.dev/cookbook/networking/fetch-data & https://docs.flutter.dev/cookbook/networking/send-data
+  - beide goeie basis om data op te halen van de API en een request terug te sturen
+
 
 
 
