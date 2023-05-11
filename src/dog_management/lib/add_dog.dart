@@ -1,7 +1,7 @@
-import 'dart:convert';
-import 'package:dog_management/services/dogMockService.dart';
+// ignore_for_file: avoid_print
+
+import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
@@ -28,9 +28,9 @@ class _AddDogState extends State<AddDog> {
   String text = "";
   Dog newDog = Dog(0, "", "", "", DateTime.now(), "");
   DateTime date = DateTime.now();
-  XFile? _image;
+  // XFile? _image;
   final ImagePicker picker = ImagePicker();
-  dogMockService dogservice = dogMockService();
+  DogMockService dogservice = DogMockService();
 
   Future<void> createFile(String text) async {
     //provides directory path.
@@ -51,19 +51,18 @@ class _AddDogState extends State<AddDog> {
   }
 
   //for the image, can upload from camera or from gallery
-  Future _pickImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-      XFile? img = XFile(image.path);
-      setState(() {
-        _image = img;
-
-      });
-    } on PlatformException catch (e) {
-      print(e);
-    }
-  }
+  // Future _pickImage(ImageSource source) async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: source);
+  //     if (image == null) return;
+  //     XFile? img = XFile(image.path);
+  //     setState(() {
+  //       _image = img;
+  //     });
+  //   } on PlatformException catch (e) {
+  //     print(e);
+  //   }
+  // }
 
   @override
   void dispose() {
@@ -167,36 +166,35 @@ class _AddDogState extends State<AddDog> {
                     labelText: 'Color',
                   ),
                 ),
-                    
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: SizedBox(
-                          width: 150,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                List<Dog> dogs = dogMockService().getAllDogs(); 
-                                int newId = dogs.length +1;
-                                Dog newDog = Dog(
-                                    newId,
-                                    nameController.text,
-                                    breedController.text,
-                                    sexController.text,
-                                    DateTime.parse(dateOfBirthController.text),
-                                    colorController.text);
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      width: 150,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            List<Dog> dogs = DogMockService().getAllDogs();
+                            int newId = dogs.length + 1;
+                            Dog newDog = Dog(
+                                newId,
+                                nameController.text,
+                                breedController.text,
+                                sexController.text,
+                                DateTime.parse(dateOfBirthController.text),
+                                colorController.text);
 
-                                dogservice.addDog(newDog);
-                        
-                                // final json = addDog.toJson();
-                                // createFile(json.toString());
-                              }
-                            },
-                            child: const Text('Add Dog'),
-                          ),
-                        ),
+                            dogservice.addDog(newDog);
+
+                            // final json = addDog.toJson();
+                            // createFile(json.toString());
+                          }
+                        },
+                        child: const Text('Add Dog'),
                       ),
                     ),
+                  ),
+                ),
               ],
             ),
           ),

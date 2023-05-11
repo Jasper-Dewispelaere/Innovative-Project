@@ -1,0 +1,56 @@
+[
+    {
+        "id": "213976be-9157-4daa-992b-5b93f68540a6",
+        "name": "Amy",
+        "breed": "Jack Russel",
+        "sex": "female",
+        "image": "https://i.imgur.com/c9LcSLy.jpg",
+        "color": "White",
+        "dateOfBirth": "2021-10-15"
+    },
+    {
+        "id": "61d97fac-4ddd-423f-9505-34642ec2f4de",
+        "name": "Fonzie",
+        "breed": "Jack Russel",
+        "sex": "male",
+        "image": "https://i.imgur.com/xRlVocd.jpg",
+        "color": "Black",
+        "dateOfBirth": "2019-04-13"
+    },
+    {
+        "id": "7c9b4034-1fc5-4960-a8f4-69e4caaca996",
+        "name": "Cheddar",
+        "breed": "Welsh Corgi",
+        "sex": "male",
+        "image": "https://i.imgur.com/1A2Wwwk.jpg",
+        "color": "Brown",
+        "dateOfBirth": "2021-10-15"
+    },
+    {
+        "id": "bd926cd2-a92d-48b0-8708-944b3660a46a",
+        "name": "Scooby-Doo",
+        "breed": "Great Dane",
+        "sex": "male",
+        "image": "https://i.imgur.com/mwHxEc2.jpg",
+        "color": "Brown",
+        "dateOfBirth": "1969-09-13"
+    },
+    {
+        "id": "c103977c-31aa-411e-966e-41295cba55ee",
+        "name": "Lassie",
+        "breed": "Scottish Collie",
+        "sex": "male",
+        "image": "https://static.wikia.nocookie.net/p__/images/2/20/LASSIE.jpg/revision/latest/scale-to-width-down/350?cb=20121112185458&path-prefix=protagonist",
+        "color": "White",
+        "dateOfBirth": "1954-09-12"
+    },
+    {
+        "name": "Courage",
+        "breed": "Welsh Corgi",
+        "sex": "male",
+        "image": "https://static.wikia.nocookie.net/courage/images/4/46/New_Courage.png/revision/latest?cb=20200912151506",
+        "color": "pink",
+        "dateOfBirth": "2021-10-15",
+        "id": "b4236939-ef90-4f50-8ae6-1a3e59c32870"
+    }
+]
