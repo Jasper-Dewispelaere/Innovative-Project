@@ -51,7 +51,8 @@ class DogOverview extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text(
-            DateFormat.yMd().format(dog.dateOfBirth),
+            // DateFormat.yMd().format(dog.dateOfBirth),
+            dog.dateOfBirth,
             style: const TextStyle(fontSize: 15),
           ),
           const Text(

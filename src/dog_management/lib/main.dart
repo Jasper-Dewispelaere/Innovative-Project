@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:dog_management/add_dog.dart';
 import 'package:dog_management/home_page.dart';
 import 'package:flutter/material.dart';
 import 'models/dog.dart';
 
 void main() {
+  HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
 }
 
@@ -58,5 +61,13 @@ class _RootPageState extends State<RootPage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+}
+
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
   }
 }

@@ -1,7 +1,7 @@
 import 'package:dog_management/dog_overview.dart';
-import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';
 import 'models/dog.dart';
+import 'services/dog_apiservice.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,8 +10,24 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _ReadDogsState();
 }
 
+
+
 class _ReadDogsState extends State<HomePage> {
-  List<Dog> dogs = DogMockService().getAllDogs();
+  List<Dog> doggies = []; 
+
+ @override
+  void initState() {
+    super.initState();
+    // Move the logic to fetch dogs to the initState method
+    DogApiService().getAllDogs().then((dogs) {
+      setState(() {
+        doggies = dogs; // Assign the fetched dogs to the list
+      });
+    }).catchError((error) {
+      // ignore: avoid_print
+      print('Error fetching dogs: $error');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +37,7 @@ class _ReadDogsState extends State<HomePage> {
         children: [
           Wrap(
             children: [
-              for (var dog in dogs)
+              for (var dog in doggies)
                 SizedBox(
                   width: 150,
                   height: 250,

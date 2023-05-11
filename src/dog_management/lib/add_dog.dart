@@ -3,8 +3,6 @@
 import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
-import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'models/dog.dart';
 
@@ -23,32 +21,33 @@ class _AddDogState extends State<AddDog> {
   final breedController = TextEditingController();
   final sexController = TextEditingController();
   final dateOfBirthController = TextEditingController();
+  final imageController = TextEditingController();
   final colorController = TextEditingController();
 
   String text = "";
-  Dog newDog = Dog(0, "", "", "", DateTime.now(), "");
+  // Dog newDog = Dog(0, "", "", "", "", "", "");
   DateTime date = DateTime.now();
   // XFile? _image;
   final ImagePicker picker = ImagePicker();
   DogMockService dogservice = DogMockService();
 
-  Future<void> createFile(String text) async {
-    //provides directory path.
-    final directory = await getApplicationDocumentsDirectory();
-    //creates text_file in the provided path.
-    final file = File('${directory.path}/dog.txt');
-    await file.writeAsString(text);
-  }
+  // Future<void> createFile(String text) async {
+  //   //provides directory path.
+  //   final directory = await getApplicationDocumentsDirectory();
+  //   //creates text_file in the provided path.
+  //   final file = File('${directory.path}/dog.txt');
+  //   await file.writeAsString(text);
+  // }
 
-  Future<void> readFile() async {
-    try {
-      final directory = await getApplicationDocumentsDirectory();
-      final file = File('${directory.path}/dog.txt');
-      text = await file.readAsString();
-    } catch (e) {
-      debugPrint('exception');
-    }
-  }
+  // Future<void> readFile() async {
+  //   try {
+  //     final directory = await getApplicationDocumentsDirectory();
+  //     final file = File('${directory.path}/dog.txt');
+  //     text = await file.readAsString();
+  //   } catch (e) {
+  //     debugPrint('exception');
+  //   }
+  // }
 
   //for the image, can upload from camera or from gallery
   // Future _pickImage(ImageSource source) async {
@@ -174,20 +173,18 @@ class _AddDogState extends State<AddDog> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            List<Dog> dogs = DogMockService().getAllDogs();
-                            int newId = dogs.length + 1;
-                            Dog newDog = Dog(
-                                newId,
-                                nameController.text,
-                                breedController.text,
-                                sexController.text,
-                                DateTime.parse(dateOfBirthController.text),
-                                colorController.text);
+                            // List<Dog> dogs = DogMockService().getAllDogs();
+                            // int newId = dogs.length + 1;
+                            // Dog newDog = Dog(
+                            //     newId,
+                                // nameController.text,
+                                // breedController.text,
+                                // sexController.text,
+                                // dateOfBirthController.text,
+                                // imageController.text,
+                                // colorController.text);
 
-                            dogservice.addDog(newDog);
-
-                            // final json = addDog.toJson();
-                            // createFile(json.toString());
+                            // dogservice.addDog(newDog);
                           }
                         },
                         child: const Text('Add Dog'),
@@ -198,32 +195,6 @@ class _AddDogState extends State<AddDog> {
               ],
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 10),
-          //   child: TextField(
-          //     textAlign: TextAlign.center, //input aligns to center
-          //     controller: textController,
-          //   ),
-          // ),
-          // const SizedBox(
-          //   height: 8,
-          // ),
-          // ElevatedButton(
-          //   child: const Text('Create File'),
-          //   onPressed: () => createFile(
-          //       textController.text), //calls createFile() when //button pressed
-          // ),
-          // ElevatedButton(
-          //   onPressed: () async {
-          //     await readFile(); //calls readFile()
-          //     setState(() {}); //rebuilds the UI.
-          //   },
-          //   child: const Text('Read File'),
-          // ),
-          // const SizedBox(
-          //   height: 18,
-          // ),
-          // if (text != null) Text(text)
         ],
       ),
     );
