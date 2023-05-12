@@ -62,8 +62,8 @@ class _ReadDogsState extends State<HomePage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Image.asset(
-                            'images/${dog.name}.jpg',
+                          Image.network(
+                            dog.image,
                             width: 220,
                             height: 180,
                             fit: BoxFit.fill,

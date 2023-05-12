@@ -28,8 +28,8 @@ class DogOverview extends StatelessWidget {
               style: const TextStyle(fontSize: 50),
             ),
           ),
-          Image.asset(
-            'images/${dog.name}.jpg',
+          Image.network(
+            dog.image,
             width: 260,
             alignment: Alignment.center,
           ),

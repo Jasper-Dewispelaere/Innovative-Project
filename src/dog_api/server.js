@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5001;
 
 const server = http.createServer((req, res) => {
     req.dogs = dogs;
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:51294');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:50943');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
