@@ -1,4 +1,4 @@
-# Dog management App with Flutter
+# Dog management App met Flutter en Node.js API
 
 ## Project Beschrijving
 ### Wat is het?
@@ -16,6 +16,7 @@ De app zal ook een 'foto dump' bevatten waarbij je alle foto's van je honden kan
 ### Welke technologie?
 
 Ik heb gekozen om de app te ontwikkelen met flutter een open source framework door Google waarbij je gemakkelijk en mooie multi-platform applicaties kan ontwikkelen, is ook heel gemakkelijk om te deployen op verschillende platformen.
+Alsook een Node.js API die alle informatie van de honden bijhoudt.
 
 ## Extra info
 
@@ -27,6 +28,7 @@ Nog niet van toepassing op dit moment.
 - Honden informatie kunnen aanpassen
 - Wandelingen bijhouden
 - Foto's toevoegen, verwijderen
+- Werkende API
 
 
 ## Roadmap/ Planning
@@ -44,5 +46,4 @@ Nog niet van toepassing op dit moment.
 
 
 ## Bronnenlijst
-- https://docs.flutter.dev/
-- https://www.youtube.com/watch?v=C-fKAzdTrLU
+Alle bronnen en research is te vinden in de **Research** folder onder de **Reports** folder.

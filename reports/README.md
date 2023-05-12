@@ -1,6 +1,10 @@
-# Organizeer deze map zoals je zelf wenst
+# Inhoudstabel - Reports
 
-Plaats hier je research nota's, voorbereidingen en verslagen.
+## Planning
 
-Overschrijf deze readme gerust met een aangename inhoudstabel.
+Bestand met de planning van het project.
 
+## Research
+
+Bestand waar je al mijn research en bronnen terug vindt. 
+Alsook uitleg wat elk deel doet in de app/ API.

@@ -2,7 +2,7 @@
     package="com.example.dog_management">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="dog_management"
+        android:label="Dog Management"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
