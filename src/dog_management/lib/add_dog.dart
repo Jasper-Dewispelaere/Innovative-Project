@@ -1,5 +1,5 @@
 // ignore_for_file: avoid_print
-
+import 'package:dog_management/services/dog_apiservice.dart';
 import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -19,10 +19,10 @@ class _AddDogState extends State<AddDog> {
   final textController = TextEditingController();
   final nameController = TextEditingController();
   final breedController = TextEditingController();
-  final sexController = TextEditingController();
   final dateOfBirthController = TextEditingController();
   final imageController = TextEditingController();
   final colorController = TextEditingController();
+  String sexController = "Male";
 
   String text = "";
   // Dog newDog = Dog(0, "", "", "", "", "", "");
@@ -30,6 +30,15 @@ class _AddDogState extends State<AddDog> {
   // XFile? _image;
   final ImagePicker picker = ImagePicker();
   DogMockService dogservice = DogMockService();
+
+  
+    void dropdownCallback(String? selectedValue) {
+      if (selectedValue is String) {
+        setState(() {
+          sexController = selectedValue;
+        });
+      }
+    }
 
   // Future<void> createFile(String text) async {
   //   //provides directory path.
@@ -71,6 +80,8 @@ class _AddDogState extends State<AddDog> {
 
   @override
   Widget build(BuildContext context) {
+    
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -118,13 +129,21 @@ class _AddDogState extends State<AddDog> {
                     labelText: 'Breed',
                   ),
                 ),
-                TextFormField(
-                  controller: sexController,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.male),
-                    hintText: 'Select your dog\'s sex',
-                    labelText: 'Sex',
-                  ),
+                // TextFormField(
+                //   controller: sexController,
+                //   decoration: const InputDecoration(
+                //     icon: Icon(Icons.male),
+                //     hintText: 'Select your dog\'s sex',
+                //     labelText: 'Sex',
+                //   ),
+                // ),
+                DropdownButton(
+                  hint: const Text("Sex"),
+                  items: const [
+                    DropdownMenuItem(value: "Male", child: Text("Male")),
+                    DropdownMenuItem(value: "Female", child: Text("Female")),
+                  ],
+                  onChanged: dropdownCallback,
                 ),
                 TextFormField(
                   controller: dateOfBirthController,
@@ -154,6 +173,20 @@ class _AddDogState extends State<AddDog> {
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
+                      return 'Please enter an image (url)';
+                    }
+                    return null;
+                  },
+                  controller: imageController,
+                  decoration: const InputDecoration(
+                    icon: Icon(Icons.image),
+                    hintText: 'Enter an url to an image\'s of the dog',
+                    labelText: 'Image (url)',
+                  ),
+                ),
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
                       return 'Please enter a color';
                     }
                     return null;
@@ -173,18 +206,17 @@ class _AddDogState extends State<AddDog> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            // List<Dog> dogs = DogMockService().getAllDogs();
-                            // int newId = dogs.length + 1;
-                            // Dog newDog = Dog(
-                            //     newId,
-                                // nameController.text,
-                                // breedController.text,
-                                // sexController.text,
-                                // dateOfBirthController.text,
-                                // imageController.text,
-                                // colorController.text);
-
-                            // dogservice.addDog(newDog);
+                            //var uuid = Uuid();
+                            Dog newDog = Dog(
+                                id: "uuid.vs4",
+                                name: nameController.text,
+                                breed: breedController.text,
+                                sex: sexController,
+                                dateOfBirth: dateOfBirthController.text,
+                                image: imageController.text,
+                                color: colorController.text);
+                            DogApiService().addDog(newDog);
+                            Navigator.pop(context);
                           }
                         },
                         child: const Text('Add Dog'),

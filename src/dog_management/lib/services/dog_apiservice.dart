@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:dog_management/models/dog.dart';
@@ -7,7 +9,8 @@ class DogApiService {
   List<Dog> dogs = [];
 
   Future<List<Dog>> getAllDogs() async {
-    final response = await http.get(Uri.parse('http://192.168.22.180:5001/api/dogs'));
+    final response =
+        await http.get(Uri.parse('http://192.168.22.180:5001/api/dogs'));
     print(response.body);
     if (response.statusCode == 200) {
       final List<dynamic> jsonList = jsonDecode(response.body);
@@ -17,8 +20,26 @@ class DogApiService {
     }
   }
 
-  void addDog(Dog addDog) {
-    dogs.add(addDog);
+  Future addDog(Dog addDog) async {
+    final response = await http.post(
+      Uri.parse('http://192.168.22.180:5001/api/dogs'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'name': addDog.name,
+        'breed': addDog.breed,
+        'sex': addDog.sex,
+        'dateOfBirth': addDog.dateOfBirth,
+        'image': addDog.image,
+        'color': addDog.color
+      }),
+    );
+
+    if(response.statusCode == 201){
+      //return Dog.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to create a new Dog!');
+    }
   }
 }
-

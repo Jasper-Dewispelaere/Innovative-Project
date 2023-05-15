@@ -1,5 +1,9 @@
 # Dog Management - Research
 
+## Hoe werkt de App?
+
+
+
 ## Bronnen - flutter
 
 - https://docs.flutter.dev/
@@ -16,7 +20,7 @@
 
 
 
-## Bronnen - nodeJS (api)
+## Bronnen - nodeJS (API)
 
 - https://nodejs.org/docs/latest/api/
   - algemene documentatie node js

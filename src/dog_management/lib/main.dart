@@ -48,18 +48,6 @@ class _RootPageState extends State<RootPage> {
         title: const Text('Dog Management'),
       ),
       body: const HomePage(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return const AddDog();
-              },
-            ),
-          );
-        },
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
