@@ -1,4 +1,5 @@
 // ignore_for_file: avoid_print
+import 'package:dog_management/models/walk.dart';
 import 'package:dog_management/services/dog_apiservice.dart';
 import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';
@@ -25,12 +26,9 @@ class _AddDogState extends State<AddDog> {
   String sexController = "Male";
 
   String text = "";
-  // Dog newDog = Dog(0, "", "", "", "", "", "");
   DateTime date = DateTime.now();
-  // XFile? _image;
   final ImagePicker picker = ImagePicker();
   DogMockService dogservice = DogMockService();
-
   
     void dropdownCallback(String? selectedValue) {
       if (selectedValue is String) {
@@ -81,7 +79,6 @@ class _AddDogState extends State<AddDog> {
   @override
   Widget build(BuildContext context) {
     
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -206,7 +203,6 @@ class _AddDogState extends State<AddDog> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            //var uuid = Uuid();
                             Dog newDog = Dog(
                                 id: "uuid.vs4",
                                 name: nameController.text,
@@ -214,7 +210,8 @@ class _AddDogState extends State<AddDog> {
                                 sex: sexController,
                                 dateOfBirth: dateOfBirthController.text,
                                 image: imageController.text,
-                                color: colorController.text);
+                                color: colorController.text,
+                                walks: []);
                             DogApiService().addDog(newDog);
                             Navigator.pop(context);
                           }

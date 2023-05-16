@@ -1,3 +1,5 @@
+import 'package:dog_management/models/walk.dart';
+
 class Dog {
   final String id;
   final String name;
@@ -6,9 +8,10 @@ class Dog {
   final String dateOfBirth;
   final String image;
   final String color;
+  final List<dynamic> walks;
 
   Dog({ required this.id, required this.name, required this.breed, required this.sex, required this.dateOfBirth, required this.image,
-      required this.color});
+      required this.color, required this.walks});
 
   factory Dog.fromJson(Map<String, dynamic> json) {
   return Dog(
@@ -19,6 +22,7 @@ class Dog {
     dateOfBirth: json['dateOfBirth'],
     image: json['image'],
     color: json['color'],
+    walks: json['walks'],
   );
 }
 
@@ -31,5 +35,6 @@ class Dog {
         'dateOfBirth': dateOfBirth,
         'image': image,
         'color': color,
+        'walks': walks
       };
 }

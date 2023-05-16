@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:dog_management/add_dog.dart';
 import 'package:dog_management/home_page.dart';
 import 'package:flutter/material.dart';
 import 'models/dog.dart';

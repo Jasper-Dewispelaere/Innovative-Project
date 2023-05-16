@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
 import 'models/dog.dart';
 
-class DogOverview extends StatelessWidget {
-  const DogOverview({super.key, required this.dog});
-
+class DogOverview extends StatefulWidget {
+  const DogOverview({Key? key, required this.dog}) : super(key: key);
   final Dog dog;
   @override
+  State<DogOverview> createState() => _OverviewState();
+}
+
+class _OverviewState extends State<DogOverview> {
+  
+  @override
   Widget build(BuildContext context) {
+    int currentPageIndex = 0;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dog'),
@@ -24,25 +28,25 @@ class DogOverview extends StatelessWidget {
         children: [
           Center(
             child: Text(
-              dog.name,
+              widget.dog.name,
               style: const TextStyle(fontSize: 50),
             ),
           ),
           Image.network(
-            dog.image,
+            widget.dog.image,
             width: 260,
             alignment: Alignment.center,
           ),
-          const Text(
-            "Dog information: ",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          ),
+          // const Text(
+          //   "Dog information: ",
+          //   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          // ),
           const Text(
             "Breed",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text(
-            dog.breed,
+            widget.dog.breed,
             style: const TextStyle(fontSize: 15),
           ),
           const Icon(Icons.male),
@@ -52,7 +56,7 @@ class DogOverview extends StatelessWidget {
           ),
           Text(
             // DateFormat.yMd().format(dog.dateOfBirth),
-            dog.dateOfBirth,
+            widget.dog.walks.length.toString(),
             style: const TextStyle(fontSize: 15),
           ),
           const Text(
@@ -60,10 +64,28 @@ class DogOverview extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text(
-            dog.color,
+            widget.dog.color,
             style: const TextStyle(fontSize: 15),
           ),
         ],
+      ),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.pets),
+            label: 'Info',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.directions_walk),
+            label: 'Walks',
+          ),
+        ],
+        selectedIndex: currentPageIndex,
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
       ),
     );
   }
