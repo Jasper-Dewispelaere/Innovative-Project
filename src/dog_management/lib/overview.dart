@@ -27,7 +27,7 @@ class _OverviewState extends State<Overview> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dog'),
+        title: Text(widget.dog.name),
         automaticallyImplyLeading: false, //default back button disable
         leading: IconButton(
           onPressed: () {
