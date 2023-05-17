@@ -1,4 +1,5 @@
 import 'package:dog_management/dog_overview.dart';
+import 'package:dog_management/overview.dart';
 import 'package:flutter/material.dart';
 import 'add_dog.dart';
 import 'models/dog.dart';
@@ -53,7 +54,7 @@ class _ReadDogsState extends State<HomePage> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return DogOverview(dog: dog);
+                                return Overview(dog: dog);
                               },
                             ),
                           );

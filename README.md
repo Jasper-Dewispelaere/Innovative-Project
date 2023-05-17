@@ -11,7 +11,7 @@ Op de app kan je ook bijhouden wanneer je bent gaan wandelen met de hond(en), di
 
 Ik heb zelf thuis honden en al die hun belangrijke informatie die je soms in nood nodig hebt staat op papier en heb je bijna nooit op zak bij, want je weet nooit als er iets gebeurt en je het nodig hebt. 
 Alsook de wandelingen zijn handig om zo bij te houden zodat je een snel en duidelijk overzicht hebt hoe vaak ze al zijn buiten geweest.
-De app zal ook een 'foto dump' bevatten waarbij je alle foto's van je honden kan bijhouden en ze niet overal op je gsm staan, want iedereen neemt krijg foto's van hun huisdieren.
+De app zal ook in verbinding staan met een zelf gemaakte API die alle informatie van de honden zal bijhouden en ook zal doorgeven naar de app.
 
 ### Welke technologie?
 

@@ -6,14 +6,14 @@
         "sex": "female",
         "image": "https://i.imgur.com/c9LcSLy.jpg",
         "color": "White",
-        "dateOfBirth": "2021-10-15",
+        "dateOfBirth": "15/10/2021",
         "walks": [
             {
                 "id": "addb1ce2-4742-4dd7-8c63-0276a292ea32",
                 "name": "Morning walk",
                 "distance": 5,
                 "time": 90,
-                "date": "2023-05-16"
+                "date": "16/05/2023"
             }
         ]
     },
@@ -24,21 +24,21 @@
         "sex": "male",
         "image": "https://i.imgur.com/xRlVocd.jpg",
         "color": "Black",
-        "dateOfBirth": "2019-04-13",
+        "dateOfBirth": "13/04/2019",
         "walks": [
             {
                 "id": "c77312b9-de72-4ee1-bbce-ea8467f8baf6",
                 "name": "Morning walk",
                 "distance": 5,
                 "time": 90,
-                "date": "2023-05-16"
+                "date": "16/05/2023"
             },
             {
                 "id": "645be061-916f-46bc-b701-83286ffadcf8",
                 "name": "Evening walk",
                 "distance": 2.5,
                 "time": 45,
-                "date": "2023-04-26"
+                "date": "16/05/2023"
             }
         ]
     },
@@ -49,14 +49,14 @@
         "sex": "male",
         "image": "https://i.imgur.com/1A2Wwwk.jpg",
         "color": "Brown",
-        "dateOfBirth": "2021-10-15",
+        "dateOfBirth": "14/03/2014",
         "walks": [
             {
                 "id": "d48fe7ea-6b0d-42c7-97a2-c0ff31205e71",
                 "name": "Morning walk",
                 "distance": 5,
                 "time": 90,
-                "date": "2023-05-16"
+                "date": "16/05/2023"
             }
         ]
     },
@@ -67,14 +67,14 @@
         "sex": "male",
         "image": "https://i.imgur.com/mwHxEc2.jpg",
         "color": "Brown",
-        "dateOfBirth": "1969-09-13",
+        "dateOfBirth": "13/09/1969",
         "walks": [
             {
                 "id": "0152480b-b351-4bd0-81c6-5a2988ed6a4b",
                 "name": "Morning walk",
                 "distance": 5,
                 "time": 90,
-                "date": "2023-05-16"
+                "date": "16/05/2023"
             }
         ]
     },
@@ -85,7 +85,7 @@
         "sex": "male",
         "image": "https://static.wikia.nocookie.net/p__/images/2/20/LASSIE.jpg/revision/latest/scale-to-width-down/350?cb=20121112185458&path-prefix=protagonist",
         "color": "White",
-        "dateOfBirth": "1954-09-12",
+        "dateOfBirth": "12/09/1954",
         "walks": [
             {
                 "id": "b4a67ffd-1f52-4977-a9f9-c2aa28a697d8",

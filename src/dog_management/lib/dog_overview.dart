@@ -1,3 +1,4 @@
+import 'package:dog_management/walk_overview.dart';
 import 'package:flutter/material.dart';
 import 'models/dog.dart';
 
@@ -9,21 +10,11 @@ class DogOverview extends StatefulWidget {
 }
 
 class _OverviewState extends State<DogOverview> {
-  
+  var currentPageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    int currentPageIndex = 0;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dog'),
-        automaticallyImplyLeading: false, //default back button disable
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(Icons.arrow_back_ios),
-        ),
-      ),
       body: Column(
         children: [
           Center(
@@ -37,10 +28,6 @@ class _OverviewState extends State<DogOverview> {
             width: 260,
             alignment: Alignment.center,
           ),
-          // const Text(
-          //   "Dog information: ",
-          //   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          // ),
           const Text(
             "Breed",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -55,8 +42,7 @@ class _OverviewState extends State<DogOverview> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text(
-            // DateFormat.yMd().format(dog.dateOfBirth),
-            widget.dog.walks.length.toString(),
+            widget.dog.dateOfBirth,
             style: const TextStyle(fontSize: 15),
           ),
           const Text(
@@ -68,24 +54,6 @@ class _OverviewState extends State<DogOverview> {
             style: const TextStyle(fontSize: 15),
           ),
         ],
-      ),
-      bottomNavigationBar: NavigationBar(
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.pets),
-            label: 'Info',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.directions_walk),
-            label: 'Walks',
-          ),
-        ],
-        selectedIndex: currentPageIndex,
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
       ),
     );
   }

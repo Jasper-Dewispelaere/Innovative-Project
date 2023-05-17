@@ -1,4 +1,3 @@
-import 'package:dog_management/models/walk.dart';
 
 class Dog {
   final String id;

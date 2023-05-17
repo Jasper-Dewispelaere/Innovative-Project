@@ -1,8 +1,8 @@
 class Walk {
   final String id;
   final String name;
-  final String distance;
-  final String time;
+  final int distance;
+  final int time;
   final String date;
 
   Walk({ required this.id, required this.name, required this.distance, required this.time, required this.date});

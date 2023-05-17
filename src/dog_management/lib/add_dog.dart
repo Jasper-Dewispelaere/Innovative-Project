@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print
-import 'package:dog_management/models/walk.dart';
 import 'package:dog_management/services/dog_apiservice.dart';
 import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';

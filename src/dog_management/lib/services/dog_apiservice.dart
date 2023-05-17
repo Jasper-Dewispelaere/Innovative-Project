@@ -1,16 +1,16 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
-
 import 'package:dog_management/models/dog.dart';
 import 'package:http/http.dart' as http;
 
 class DogApiService {
   List<Dog> dogs = [];
+  String baseUrl = "http://192.168.22.180:5001/api/dogs";
 
   Future<List<Dog>> getAllDogs() async {
     final response =
-        await http.get(Uri.parse('http://192.168.22.180:5001/api/dogs'));
+        await http.get(Uri.parse(baseUrl));
     print(response.body);
     if (response.statusCode == 200) {
       final List<dynamic> jsonList = jsonDecode(response.body);
@@ -22,7 +22,7 @@ class DogApiService {
 
   Future addDog(Dog addDog) async {
     final response = await http.post(
-      Uri.parse('http://192.168.22.180:5001/api/dogs'),
+      Uri.parse(baseUrl),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
