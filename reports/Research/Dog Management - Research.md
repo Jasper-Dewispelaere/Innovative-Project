@@ -21,6 +21,7 @@ Voor een lokaal Android toestel gaat u deze via een usb kabel aan de pc moeten h
 
 Van zodra dit allemaal goed staat kan u via de **main.dart** file rechtsboven op de start knop klikken 
 ![flutter_run](https://i.imgur.com/mqP3Z8W.png)
+
 Of via de terminal in **Visual Studio Code** het commando `flutter run` uitvoeren (let wel op dat je in de juiste folder zit in de terminal **\src\dog_management**).
 
 ### Flutter - app
