@@ -20,7 +20,7 @@ Alsook een Node.js API die alle informatie van de honden bijhoudt.
 
 ## Extra info
 
-Nog niet van toepassing op dit moment.
+Alle benodigheden voor het uitvoeren van de applicatie en het opzetten van de api is terug te vinden in de **Research** folder onder de **Reports** folder.
 
 ## Uiteindelijke Doelen Demo/Prototype
 
