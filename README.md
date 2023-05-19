@@ -46,4 +46,29 @@ Alle benodigheden voor het uitvoeren van de applicatie en het opzetten van de ap
 
 
 ## Bronnenlijst
-Alle bronnen en research is te vinden in de **Research** folder onder de **Reports** folder.
+
+### Flutter - app
+
+- https://docs.flutter.dev/
+  - Meeste informatie van de officiële documentatie gevonden
+- https://www.youtube.com/watch?v=C-fKAzdTrLU
+  - Basis flutter tutorial die bij de start van het project een goeie basis was
+- https://docs.flutter.dev/cookbook/persistence/reading-writing-files
+  - App data bijhouden zonder database -> uitendelijk toch overgeschakeld naar een api 
+- https://docs.flutter.dev/cookbook/networking/fetch-data & https://docs.flutter.dev/cookbook/networking/send-data
+  - Beide goeie basis om data op te halen van de API en een request terug te sturen
+- https://stackoverflow.com/
+  - Heeft ook geholpen voor bepaalde problemen op te lossen
+
+
+
+
+
+### NodeJS - api
+
+- https://nodejs.org/docs/latest/api/
+  - algemene documentatie node js
+- https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm
+  - korte maar hulpvolle tutorial voor de basis van de API
+- https://www.youtube.com/watch?v=4Z02Lgx4nS0
+  - Vanilla CRUD nodejs api, deze tutorial grotendeels gevolgd voor het opzetten van de api

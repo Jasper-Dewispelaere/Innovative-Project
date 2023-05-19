@@ -36,14 +36,42 @@ Alles van informatie, toevoegen, bewerken en verwijderen van de honden staat in 
 
 #### Technische kant 
 
-Flutter is een open source framework door Google voor het maken van multi-platform applicaties, en werkt met verschillende widgets om de pagina's op te bouwen.
+Flutter is een open source framework door Google voor het maken van multi-platform applicaties, en werkt met verschillende widgets om de pagina's op te bouwen. Daarmee is de opbouw van de code met allemaal verschillende widgets. Mijn app is opgebouwd uit verschillende pagina's, model en een service class.
 
+#### Pages
 
+- **main.dart**
+  - De root van alle pagina's, deze wordt altijd opgebouwd als je de app opstart.
+- **home_page.dart**
+  - Deze pagina wordt op geroepen op de **main.dart**, en staat in voor het tonen van de cards waarin alle honden te zien zijn. Vanaf je een hond aanklikt kom je uit op de **overview.dart.** Of je kan op de plus knop klikken om een hond toe te voegen op **add_dog.dart**.
+- **overview.dart**
+  - Vanaf je een hond aanklikt op de **home_page.dart** kom je op deze pagina terecht, op deze pagina krijg je een navigationbar te zien met info en walks. Standaard wordt de **dog_overview.dart** getoond.
+- **dog_overview.dart**
+  - Alle informatie van de geselecteerd hond krijg je hier te zien.
+- **walk_overview.dart**
+  - Overzicht van alle wandelingen die horen bij de geselecteerd hond.
+- **add_dog.dart**
+  - Op deze pagina kan je een hond toevoegen met een formulier die voorzien is van validatie.
 
+#### Model
+
+- **dog.dart**
+  - Gebruikt voor de api response met de juiste properties in te vullen.
+
+#### Service
+
+- **dog_apiservice.dart**
+  - De hoofd service die alle verbindingen met de api aansturen en ontvangen, 
+- **dog_mockservice.dart**
+  - Mock service die in het begin van het project gebruikt werd maar nu niet meer nodig is met de api
 
 ### NodeJS - api
 
+*Deze zal standaard altijd op poort 5001 draaien, dus http://localhost:5001/api/dogs om alle honden te bekijken*
 
+De api heeft een JSON file genaamd **dogs.json** waarin alle data wordt bijgehouden, met de methodes maken we de verschillende endpoints (get, post, put en delete). In de **util** folder vinden we de bestanden **body-parser.js** en **write-to-file.js** deze zorgen ervoor dat inkomende data van de app terecht komt in de **dogs.json**. 
+
+Maar waar alles echt gebeurd is in de **server.js** daar staan de endpoints ingesteld en ook het poort nummer van de server, deze staat in zodat de api draait en je ermee kunt verbinden.
 
 ## Bronnen
 
