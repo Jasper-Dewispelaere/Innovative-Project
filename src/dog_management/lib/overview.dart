@@ -49,6 +49,8 @@ class _OverviewState extends State<Overview> {
           ),
         ],
         selectedIndex: currentPageIndex,
+        height: 75,
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         onDestinationSelected: (index) {
           setState(() {
             currentPageIndex = index;

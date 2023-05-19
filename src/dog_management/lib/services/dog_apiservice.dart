@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 class DogApiService {
   List<Dog> dogs = [];
-  String baseUrl = "http://192.168.22.180:5001/api/dogs";
+  String baseUrl = "http://192.168.22.180:5001/api/dogs"; //<---- zelf vervangen door eigen IP-adres
 
   Future<List<Dog>> getAllDogs() async {
     final response =
