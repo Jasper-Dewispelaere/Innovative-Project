@@ -8,19 +8,19 @@
 
 Als eerste ga je de api moeten starten, waarvoor je NodeJs nodig hebt. Als je NodeJS nog niet zou hebben kan je het via deze link https://nodejs.org/en downloaden.
 Na het installeren van NodeJs kan je in de terminal van uw **Visual Studio Code** de api starten, maar eerst zien als je wel in de map zit van het api project. Als dit niet het geval is kan je via dit commando `cd .\src\dog_api\` naar de juiste folder navigeren. 
-Vanaf je in de juiste folder zit kan je het commando `npm start` uitvoeren en zou u dit scherm te zien moeten krijgen: ![image-20230519103332970](C:\Users\jaspe\AppData\Roaming\Typora\typora-user-images\image-20230519103332970.png) Dit wil zeggen dat de api actief is en aanspreekbaar is voor de app, je kan dit testen door in de browser naar http://localhost:5001/api/dogs te surfen.
+Vanaf je in de juiste folder zit kan je het commando `npm start` uitvoeren en zou u dit scherm te zien moeten krijgen: ![Api_start](https://i.imgur.com/duYUcy9.png) Dit wil zeggen dat de api actief is en aanspreekbaar is voor de app, je kan dit testen door in de browser naar http://localhost:5001/api/dogs te surfen.
 
 Nu dat de api actief is kunnen we de Flutter app uitvoeren en ook gebruiken, je gaat alleen in de code een kleine aanpassing moeten doen. In het bestand "**dog_apiservice.dart**" ga je het IP-adres van de baseUrl moeten vervangen door uw eigen IP-adres, dat je kan opvragen in je **command Prompt** met **ipconfig**. Zodat de app verbinding met de api kan maken.
 Als je Flutter nog niet op je pc aanwezig is kan je dit downloaden via deze link: https://docs.flutter.dev/get-started/install alsook in **Visual Studio Code** ga je de extension **Flutter** en **Dart** nodig hebben. 
 Vanaf nu kan je de Flutter app runnen maar waar wil je het deployen? Rechts onderaan in **Visual Studio Code** staat de geselecteerde platform waarop je de app zal deployen.
-![image-20230519112322870](C:\Users\jaspe\AppData\Roaming\Typora\typora-user-images\image-20230519112322870.png)
+![flutter_devices](https://i.imgur.com/QBKiUku.png)
 
 Voor Desktop kan u gemakkelijk **Edge** of **Chrome** gebruiken voor de app te tonen. Maar de app is natuurlijk gemaakt voor mobiele devices daarvoor is een emulator zeer handig, die kan u via **Android Studio** gebruiken. 
 Via deze link https://developer.android.com/studio kan u dit downloaden en gebruiken.
 Voor een lokaal Android toestel gaat u deze via een usb kabel aan de pc moeten hangen en USB debugging in de developer settings moeten aanzetten.
 
 Van zodra dit allemaal goed staat kan u via de **main.dart** file rechtsboven op de start knop klikken 
-![image-20230519113127638](C:\Users\jaspe\AppData\Roaming\Typora\typora-user-images\image-20230519113127638.png)
+![flutter_run](https://i.imgur.com/mqP3Z8W.png)
 Of via de terminal in **Visual Studio Code** het commando `flutter run` uitvoeren (let wel op dat je in de juiste folder zit in de terminal **\src\dog_management**).
 
 ### Flutter - app
