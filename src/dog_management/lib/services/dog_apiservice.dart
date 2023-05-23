@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class DogApiService {
   List<Dog> dogs = [];
-  String baseUrl = "http://192.168.22.180:5001/api/dogs"; //<---- zelf vervangen door eigen IP-adres
+  String baseUrl = "http://192.168.0.133:5001/api/dogs"; //<---- zelf vervangen door eigen IP-adres http://HIER_EIGEN_IP:5001/api/dogs
 
   Future<List<Dog>> getAllDogs() async {
     final response =
@@ -25,13 +25,14 @@ class DogApiService {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, String>{
+      body: jsonEncode(<String, dynamic>{
         'name': addDog.name,
         'breed': addDog.breed,
         'sex': addDog.sex,
         'dateOfBirth': addDog.dateOfBirth,
         'image': addDog.image,
-        'color': addDog.color
+        'color': addDog.color,
+        'walks' : addDog.walks
       }),
     );
 

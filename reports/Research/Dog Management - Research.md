@@ -90,8 +90,6 @@ Maar waar alles echt gebeurd is in de **server.js** daar staan de endpoints inge
 
 
 
-
-
 ### NodeJS - api
 
 - https://nodejs.org/docs/latest/api/

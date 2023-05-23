@@ -6,22 +6,22 @@ import 'package:intl/intl.dart';
 import 'package:image_picker/image_picker.dart';
 import 'models/dog.dart';
 
-class AddDog extends StatefulWidget {
-  const AddDog({super.key});
+class AddWalk extends StatefulWidget {
+  const AddWalk({Key? key, required this.dog}) : super(key: key);
+  final Dog dog;
 
   @override
-  State<AddDog> createState() => _AddDogState();
+  State<AddWalk> createState() => _AddWalkState();
 }
 
-class _AddDogState extends State<AddDog> {
+class _AddWalkState extends State<AddWalk> {
   final _formKey = GlobalKey<FormState>();
   //TextControllers form
   final textController = TextEditingController();
   final nameController = TextEditingController();
+  final dateController = TextEditingController();
+  final distanceController = TextEditingController();
   final breedController = TextEditingController();
-  final dateOfBirthController = TextEditingController();
-  final imageController = TextEditingController();
-  final colorController = TextEditingController();
   String sexController = "Male";
 
   String text = "";
@@ -37,38 +37,6 @@ class _AddDogState extends State<AddDog> {
       }
     }
 
-  // Future<void> createFile(String text) async {
-  //   //provides directory path.
-  //   final directory = await getApplicationDocumentsDirectory();
-  //   //creates text_file in the provided path.
-  //   final file = File('${directory.path}/dog.txt');
-  //   await file.writeAsString(text);
-  // }
-
-  // Future<void> readFile() async {
-  //   try {
-  //     final directory = await getApplicationDocumentsDirectory();
-  //     final file = File('${directory.path}/dog.txt');
-  //     text = await file.readAsString();
-  //   } catch (e) {
-  //     debugPrint('exception');
-  //   }
-  // }
-
-  //for the image, can upload from camera or from gallery
-  // Future _pickImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: source);
-  //     if (image == null) return;
-  //     XFile? img = XFile(image.path);
-  //     setState(() {
-  //       _image = img;
-  //     });
-  //   } on PlatformException catch (e) {
-  //     print(e);
-  //   }
-  // }
-
   @override
   void dispose() {
     textController.dispose();
@@ -81,7 +49,7 @@ class _AddDogState extends State<AddDog> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Add Dog'),
+        title: const Text('Add Walk'),
         automaticallyImplyLeading: false, //default back button disable
         leading: IconButton(
           onPressed: () {
@@ -100,53 +68,23 @@ class _AddDogState extends State<AddDog> {
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter a name';
+                      return 'Please enter a name for the walk';
                     }
                     return null;
                   },
                   controller: nameController,
                   decoration: const InputDecoration(
-                    icon: Icon(Icons.pets),
-                    hintText: 'Enter your dog\'s name',
-                    labelText: 'Name',
+                    icon: Icon(Icons.directions_walk),
+                    hintText: 'Enter the name of the walk',
+                    labelText: 'Name Walk',
                   ),
                 ),
                 TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter a breed';
-                    }
-                    return null;
-                  },
-                  controller: breedController,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.favorite),
-                    hintText: 'Enter your dog\'s breed',
-                    labelText: 'Breed',
-                  ),
-                ),
-                // TextFormField(
-                //   controller: sexController,
-                //   decoration: const InputDecoration(
-                //     icon: Icon(Icons.male),
-                //     hintText: 'Select your dog\'s sex',
-                //     labelText: 'Sex',
-                //   ),
-                // ),
-                DropdownButton(
-                  hint: const Text("Sex"),
-                  items: const [
-                    DropdownMenuItem(value: "Male", child: Text("Male")),
-                    DropdownMenuItem(value: "Female", child: Text("Female")),
-                  ],
-                  onChanged: dropdownCallback,
-                ),
-                TextFormField(
-                  controller: dateOfBirthController,
+                  controller: dateController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.calendar_month),
-                    hintText: 'Select the Date of Birth',
-                    labelText: 'Date of Birth',
+                    hintText: 'Select the date',
+                    labelText: 'Date',
                   ),
                   onTap: () async {
                     DateTime? newDateOfBirth = await showDatePicker(
@@ -158,7 +96,7 @@ class _AddDogState extends State<AddDog> {
                       String formattedDate =
                           DateFormat('dd/MM/yyyy').format(newDateOfBirth);
                       setState(() {
-                        dateOfBirthController.text =
+                        dateController.text =
                             formattedDate; //set output date to TextField value.
                       });
                     } else {
@@ -169,29 +107,29 @@ class _AddDogState extends State<AddDog> {
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter an image (url)';
+                      return 'Please enter a distance';
                     }
                     return null;
                   },
-                  controller: imageController,
+                  controller: distanceController,
                   decoration: const InputDecoration(
-                    icon: Icon(Icons.image),
-                    hintText: 'Enter an url to an image\'s of the dog',
-                    labelText: 'Image (url)',
+                    icon: Icon(Icons.location_on),
+                    hintText: 'Enter the distance',
+                    labelText: 'Distance (in km)',
                   ),
                 ),
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter a color';
+                      return 'Please enter a duration';
                     }
                     return null;
                   },
-                  controller: colorController,
+                  controller: distanceController,
                   decoration: const InputDecoration(
-                    icon: Icon(Icons.palette),
-                    hintText: 'Enter the dog\'s color',
-                    labelText: 'Color',
+                    icon: Icon(Icons.timelapse),
+                    hintText: 'Enter the duration',
+                    labelText: 'Duration (in minutes)',
                   ),
                 ),
                 Center(
@@ -203,19 +141,19 @@ class _AddDogState extends State<AddDog> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             Dog newDog = Dog(
-                                id: "uuid.vs4",
-                                name: nameController.text,
-                                breed: breedController.text,
-                                sex: sexController,
-                                dateOfBirth: dateOfBirthController.text,
-                                image: imageController.text,
-                                color: colorController.text,
-                                walks: [""]);
+                                id: widget.dog.id,
+                                name: widget.dog.name,
+                                breed: widget.dog.breed,
+                                sex: widget.dog.sex,
+                                dateOfBirth: widget.dog.dateOfBirth,
+                                image: widget.dog.image,
+                                color: widget.dog.color,
+                                walks: []);
                             DogApiService().addDog(newDog);
                             Navigator.pop(context);
                           }
                         },
-                        child: const Text('Add Dog'),
+                        child: const Text('Add Walk'),
                       ),
                     ),
                   ),
