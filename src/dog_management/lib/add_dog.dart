@@ -22,7 +22,7 @@ class _AddDogState extends State<AddDog> {
   final dateOfBirthController = TextEditingController();
   final imageController = TextEditingController();
   final colorController = TextEditingController();
-  String sexController = "Male";
+  final sexController = TextEditingController();
 
   String text = "";
   DateTime date = DateTime.now();
@@ -32,7 +32,7 @@ class _AddDogState extends State<AddDog> {
     void dropdownCallback(String? selectedValue) {
       if (selectedValue is String) {
         setState(() {
-          sexController = selectedValue;
+          text = selectedValue;
         });
       }
     }
@@ -125,22 +125,22 @@ class _AddDogState extends State<AddDog> {
                     labelText: 'Breed',
                   ),
                 ),
-                // TextFormField(
-                //   controller: sexController,
-                //   decoration: const InputDecoration(
-                //     icon: Icon(Icons.male),
-                //     hintText: 'Select your dog\'s sex',
-                //     labelText: 'Sex',
-                //   ),
-                // ),
-                DropdownButton(
-                  hint: const Text("Sex"),
-                  items: const [
-                    DropdownMenuItem(value: "Male", child: Text("Male")),
-                    DropdownMenuItem(value: "Female", child: Text("Female")),
-                  ],
-                  onChanged: dropdownCallback,
+                TextFormField(
+                  controller: sexController,
+                  decoration: const InputDecoration(
+                    icon: Icon(Icons.male),
+                    hintText: 'Select your dog\'s gender',
+                    labelText: 'Gender',
+                  ),
                 ),
+                // DropdownButton(
+                //   hint: const Text("Sex"),
+                //   items: const [
+                //     DropdownMenuItem(value: "Male", child: Text("Male")),
+                //     DropdownMenuItem(value: "Female", child: Text("Female")),
+                //   ],
+                //   onChanged: dropdownCallback,
+                // ),
                 TextFormField(
                   controller: dateOfBirthController,
                   decoration: const InputDecoration(
@@ -206,7 +206,7 @@ class _AddDogState extends State<AddDog> {
                                 id: "uuid.vs4",
                                 name: nameController.text,
                                 breed: breedController.text,
-                                sex: sexController,
+                                sex: sexController.text,
                                 dateOfBirth: dateOfBirthController.text,
                                 image: imageController.text,
                                 color: colorController.text,
