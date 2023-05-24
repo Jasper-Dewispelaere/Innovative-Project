@@ -1,1 +1,185 @@
-[{"id":"213976be-9157-4daa-992b-5b93f68540a6","name":"Amy","breed":"Jack Russel","sex":"female","image":"https://i.imgur.com/c9LcSLy.jpg","color":"White","dateOfBirth":"15/10/2021","walks":[{"id":"addb1ce2-4742-4dd7-8c63-0276a292ea32","name":"Morning walk","distance":5,"time":90,"date":"16/05/2023"}]},{"id":"61d97fac-4ddd-423f-9505-34642ec2f4de","name":"Fonzie","breed":"Jack Russel","sex":"male","image":"https://i.imgur.com/xRlVocd.jpg","color":"Black","dateOfBirth":"13/04/2019","walks":[{"id":"c77312b9-de72-4ee1-bbce-ea8467f8baf6","name":"Morning walk","distance":5,"time":90,"date":"16/05/2023"},{"id":"645be061-916f-46bc-b701-83286ffadcf8","name":"Evening walk","distance":2.5,"time":45,"date":"16/05/2023"}]},{"id":"7c9b4034-1fc5-4960-a8f4-69e4caaca996","name":"Cheddar","breed":"Welsh Corgi","sex":"male","image":"https://i.imgur.com/1A2Wwwk.jpg","color":"Brown","dateOfBirth":"14/03/2014","walks":[{"id":"d48fe7ea-6b0d-42c7-97a2-c0ff31205e71","name":"Morning walk","distance":5,"time":90,"date":"16/05/2023"}]},{"id":"bd926cd2-a92d-48b0-8708-944b3660a46a","name":"Scooby-Doo","breed":"Great Dane","sex":"male","image":"https://i.imgur.com/mwHxEc2.jpg","color":"Brown","dateOfBirth":"13/09/1969","walks":[{"id":"0152480b-b351-4bd0-81c6-5a2988ed6a4b","name":"Morning walk","distance":5,"time":90,"date":"16/05/2023"}]},{"id":"c103977c-31aa-411e-966e-41295cba55ee","name":"Lassie","breed":"Scottish Collie","sex":"male","image":"https://static.wikia.nocookie.net/p__/images/2/20/LASSIE.jpg/revision/latest/scale-to-width-down/350?cb=20121112185458&path-prefix=protagonist","color":"White","dateOfBirth":"12/09/1954","walks":[{"id":"b4a67ffd-1f52-4977-a9f9-c2aa28a697d8","name":"Morning walk","distance":5,"time":90,"date":"2023-05-16"}]},{"name":"Courage","breed":"Welsh Corgi","sex":"male","image":"https://static.wikia.nocookie.net/courage/images/4/46/New_Courage.png/revision/latest?cb=20200912151506","color":"pink","dateOfBirth":"2021-10-15","id":"b4236939-ef90-4f50-8ae6-1a3e59c32870","walks":[{"id":"d48fe7ea-6b0d-42c7-97a2-c0ff31205e71","name":"Morning walk","distance":5,"time":90,"date":"2023-05-16"}]},{"name":"xddd","breed":"fetef","sex":"Male","dateOfBirth":"2023-05-03","image":"https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*","color":"fjeijfiez","id":"a6bccf3f-85cc-4822-81be-6af69b6d217e","walks":[{"id":"85a7e9b3-29fc-41cd-be96-5f2f42ac86f4","name":"Morning walk","distance":5,"time":90,"date":"2023-05-16"}]},{"name":"ja ja","breed":"dsdsd","sex":"Female","dateOfBirth":"10/05/2023","image":"https://media.cnn.com/api/v1/images/stellar/prod/220818142713-dogs-tears-emotions-wellness-stock.jpg?c=3x2","color":"brown","id":"b1128cab-1c31-48f8-aa6a-c41a553fd57b","walks":[{"id":"85a7e9b3-29fc-41cd-be96-5f2f42ac86f4","name":"Morning walk","distance":5,"time":90,"date":"2023-05-16"}]},{"name":"ne","breed":"ja","sex":"Male","dateOfBirth":"08/05/2023","image":"https://hips.hearstapps.com/hmg-prod/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.754xh;0,0.0634xh&resize=1200:*","color":"brown","id":"efd4f5ee-a433-4c6b-a943-ed19aa341440","walks":[]},{"name":"testerino","breed":"cloned","sex":"Male","dateOfBirth":"03/05/2023","image":"https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg","color":"white","walks":[],"id":"e276248f-d5da-4f34-8f03-ab8ade20153e"},{"name":"aloy","breed":"cloned2","sex":"Male","dateOfBirth":"23/05/2023","image":"https://pbs.twimg.com/media/FwzTtx-X0AAUN36?format=jpg&name=large","color":"human","walks":[""],"id":"910f1282-c33c-47a2-ace2-2ceacd672448"}]
+[
+    {
+        "id": "213976be-9157-4daa-992b-5b93f68540a6",
+        "name": "Amy",
+        "breed": "Jack Russel",
+        "sex": "female",
+        "image": "https://i.imgur.com/c9LcSLy.jpg",
+        "color": "White",
+        "dateOfBirth": "15/10/2021",
+        "walks": [
+            {
+                "id": "addb1ce2-4742-4dd7-8c63-0276a292ea32",
+                "name": "Morning walk",
+                "distance": 5,
+                "time": 90,
+                "date": "16/05/2023"
+            }
+        ]
+    },
+    {
+        "id": "61d97fac-4ddd-423f-9505-34642ec2f4de",
+        "name": "Fonzie",
+        "breed": "Jack Russel",
+        "sex": "male",
+        "image": "https://i.imgur.com/xRlVocd.jpg",
+        "color": "Black",
+        "dateOfBirth": "13/04/2019",
+        "walks": [
+            {
+                "id": "c77312b9-de72-4ee1-bbce-ea8467f8baf6",
+                "name": "Morning walk",
+                "distance": 5,
+                "time": 90,
+                "date": "16/05/2023"
+            },
+            {
+                "id": "645be061-916f-46bc-b701-83286ffadcf8",
+                "name": "Evening walk",
+                "distance": 2.5,
+                "time": 45,
+                "date": "16/05/2023"
+            }
+        ]
+    },
+    {
+        "id": "7c9b4034-1fc5-4960-a8f4-69e4caaca996",
+        "name": "Cheddar",
+        "breed": "Welsh Corgi",
+        "sex": "male",
+        "image": "https://i.imgur.com/1A2Wwwk.jpg",
+        "color": "Brown",
+        "dateOfBirth": "14/03/2014",
+        "walks": [
+            {
+                "id": "d48fe7ea-6b0d-42c7-97a2-c0ff31205e71",
+                "name": "Morning walk",
+                "distance": 5,
+                "time": 90,
+                "date": "16/05/2023"
+            }
+        ]
+    },
+    {
+        "id": "bd926cd2-a92d-48b0-8708-944b3660a46a",
+        "name": "Scooby-Doo",
+        "breed": "Great Dane",
+        "sex": "male",
+        "image": "https://i.imgur.com/mwHxEc2.jpg",
+        "color": "Brown",
+        "dateOfBirth": "13/09/1969",
+        "walks": [
+            {
+                "id": "0152480b-b351-4bd0-81c6-5a2988ed6a4b",
+                "name": "Morning walk",
+                "distance": 5,
+                "time": 90,
+                "date": "16/05/2023"
+            }
+        ]
+    },
+    {
+        "id": "c103977c-31aa-411e-966e-41295cba55ee",
+        "name": "Lassie",
+        "breed": "Scottish Collie",
+        "sex": "male",
+        "image": "https://static.wikia.nocookie.net/p__/images/2/20/LASSIE.jpg/revision/latest/scale-to-width-down/350?cb=20121112185458&path-prefix=protagonist",
+        "color": "White",
+        "dateOfBirth": "12/09/1954",
+        "walks": [
+            {
+                "id": "b4a67ffd-1f52-4977-a9f9-c2aa28a697d8",
+                "name": "Morning walk",
+                "distance": 5,
+                "time": 90,
+                "date": "2023-05-16"
+            }
+        ]
+    },
+    {
+        "name": "Courage",
+        "breed": "Welsh Corgi",
+        "sex": "male",
+        "image": "https://static.wikia.nocookie.net/courage/images/4/46/New_Courage.png/revision/latest?cb=20200912151506",
+        "color": "pink",
+        "dateOfBirth": "2021-10-15",
+        "id": "b4236939-ef90-4f50-8ae6-1a3e59c32870",
+        "walks": [
+            {
+                "id": "d48fe7ea-6b0d-42c7-97a2-c0ff31205e71",
+                "name": "Morning walk",
+                "distance": 5,
+                "time": 90,
+                "date": "2023-05-16"
+            }
+        ]
+    },
+    {
+        "name": "xddd",
+        "breed": "fetef",
+        "sex": "Male",
+        "dateOfBirth": "2023-05-03",
+        "image": "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*",
+        "color": "fjeijfiez",
+        "id": "a6bccf3f-85cc-4822-81be-6af69b6d217e",
+        "walks": [
+            {
+                "id": "85a7e9b3-29fc-41cd-be96-5f2f42ac86f4",
+                "name": "Morning walk",
+                "distance": 5,
+                "time": 90,
+                "date": "2023-05-16"
+            }
+        ]
+    },
+    {
+        "name": "ja ja",
+        "breed": "dsdsd",
+        "sex": "Female",
+        "dateOfBirth": "10/05/2023",
+        "image": "https://media.cnn.com/api/v1/images/stellar/prod/220818142713-dogs-tears-emotions-wellness-stock.jpg?c=3x2",
+        "color": "brown",
+        "id": "b1128cab-1c31-48f8-aa6a-c41a553fd57b",
+        "walks": [
+            {
+                "id": "85a7e9b3-29fc-41cd-be96-5f2f42ac86f4",
+                "name": "Morning walk",
+                "distance": 5,
+                "time": 90,
+                "date": "2023-05-16"
+            }
+        ]
+    },
+    {
+        "name": "ne",
+        "breed": "ja",
+        "sex": "Male",
+        "dateOfBirth": "08/05/2023",
+        "image": "https://hips.hearstapps.com/hmg-prod/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.754xh;0,0.0634xh&resize=1200:*",
+        "color": "brown",
+        "id": "efd4f5ee-a433-4c6b-a943-ed19aa341440",
+        "walks": []
+    },
+    {
+        "name": "testerino",
+        "breed": "cloned",
+        "sex": "Male",
+        "dateOfBirth": "03/05/2023",
+        "image": "https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg",
+        "color": "white",
+        "walks": [],
+        "id": "e276248f-d5da-4f34-8f03-ab8ade20153e"
+    },
+    {
+        "name": "aloy",
+        "breed": "cloned2",
+        "sex": "Male",
+        "dateOfBirth": "23/05/2023",
+        "image": "https://pbs.twimg.com/media/FwzTtx-X0AAUN36?format=jpg&name=large",
+        "color": "human",
+        "walks": [
+            ""
+        ],
+        "id": "910f1282-c33c-47a2-ace2-2ceacd672448"
+    }
+]

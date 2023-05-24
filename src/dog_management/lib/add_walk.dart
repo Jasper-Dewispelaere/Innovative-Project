@@ -3,7 +3,6 @@ import 'package:dog_management/services/dog_apiservice.dart';
 import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:image_picker/image_picker.dart';
 import 'models/dog.dart';
 
 class AddWalk extends StatefulWidget {
@@ -21,21 +20,11 @@ class _AddWalkState extends State<AddWalk> {
   final nameController = TextEditingController();
   final dateController = TextEditingController();
   final distanceController = TextEditingController();
-  final breedController = TextEditingController();
-  String sexController = "Male";
+  final durationController = TextEditingController();
 
   String text = "";
   DateTime date = DateTime.now();
-  final ImagePicker picker = ImagePicker();
   DogMockService dogservice = DogMockService();
-  
-    void dropdownCallback(String? selectedValue) {
-      if (selectedValue is String) {
-        setState(() {
-          sexController = selectedValue;
-        });
-      }
-    }
 
   @override
   void dispose() {
@@ -125,7 +114,7 @@ class _AddWalkState extends State<AddWalk> {
                     }
                     return null;
                   },
-                  controller: distanceController,
+                  controller: durationController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.timelapse),
                     hintText: 'Enter the duration',
@@ -140,7 +129,13 @@ class _AddWalkState extends State<AddWalk> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            Dog newDog = Dog(
+                            List<dynamic> allwalks = [widget.dog.walks];
+                            allwalks.add(nameController);
+                            allwalks.add(dateController);
+                            allwalks.add(distanceController);
+                            allwalks.add(durationController);
+
+                            Dog newWalk = Dog(
                                 id: widget.dog.id,
                                 name: widget.dog.name,
                                 breed: widget.dog.breed,
@@ -148,8 +143,8 @@ class _AddWalkState extends State<AddWalk> {
                                 dateOfBirth: widget.dog.dateOfBirth,
                                 image: widget.dog.image,
                                 color: widget.dog.color,
-                                walks: []);
-                            DogApiService().addDog(newDog);
+                                walks: allwalks);
+                            DogApiService().editDog(newWalk);
                             Navigator.pop(context);
                           }
                         },

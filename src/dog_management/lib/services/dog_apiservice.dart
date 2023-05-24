@@ -42,4 +42,28 @@ class DogApiService {
       throw Exception('Failed to create a new Dog!');
     }
   }
+
+  Future editDog(Dog editDog) async{
+    final response = await http.put(
+      Uri.parse(baseUrl + editDog.id),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, dynamic>{
+        'name': editDog.name,
+        'breed': editDog.breed,
+        'sex': editDog.sex,
+        'dateOfBirth': editDog.dateOfBirth,
+        'image': editDog.image,
+        'color': editDog.color,
+        'walks' : editDog.walks
+      }),
+    );
+
+     if(response.statusCode == 201){
+      //return Dog.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to edit a Dog!');
+    }
+  }
 }
