@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "970675234833",
+    "project_id": "dog-management-1fcd0",
+    "storage_bucket": "dog-management-1fcd0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970675234833:android:ec4ef9e3ada37ba13429b0",
+        "android_client_info": {
+          "package_name": "com.example.dog_management"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXaHSDw_OhRrjgUTtD3aPCKAJ-VlUlj3Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

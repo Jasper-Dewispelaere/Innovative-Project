@@ -1,9 +1,13 @@
 import 'dart:io';
 import 'package:dog_management/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'models/dog.dart';
 
-void main() {
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  
   HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
 }
