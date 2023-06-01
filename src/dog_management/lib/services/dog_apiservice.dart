@@ -45,7 +45,7 @@ class DogApiService {
 
   Future editDog(Dog editDog) async{
     final response = await http.put(
-      Uri.parse(baseUrl + editDog.id),
+      Uri.parse(baseUrl + editDog.id.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dog_management/dog_overview.dart';
 import 'package:dog_management/overview.dart';
 import 'package:flutter/material.dart';
@@ -15,77 +16,51 @@ class HomePage extends StatefulWidget {
 class _ReadDogsState extends State<HomePage> {
   List<Dog> doggies = [];
 
+  Stream<List<Dog>> readDogs() => FirebaseFirestore.instance
+    .collection('dogs')
+    .snapshots()
+    .map((snapshot) => snapshot.docs.map((doc) => Dog.fromSnapshot(doc)).toList());
+
+  Widget buildDog(Dog dog) => ListTile(
+    leading: CircleAvatar(child: Image.network(dog.image)),
+    title: Text(dog.name),
+    subtitle: Text(dog.breed),
+  );
+
   @override
   void initState() {
     super.initState();
     // Move the logic to fetch dogs to the initState method
-    DogApiService().getAllDogs().then((dogs) {
-      setState(() {
-        doggies = dogs; // Assign the fetched dogs to the list
-      });
-    }).catchError((error) {
-      // ignore: avoid_print
-      print('Error fetching dogs: $error');
-    });
+    // DogApiService().getAllDogs().then((dogs) {
+    //   setState(() {
+    //     doggies = dogs; // Assign the fetched dogs to the list
+    //   });
+    // }).catchError((error) {
+    //   // ignore: avoid_print
+    //   print('Error fetching dogs: $error');
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-          child: Center(
-        child: Stack(
-          children: [
-            Wrap(
-              children: [
-                for (var dog in doggies)
-                  SizedBox(
-                    width: 150,
-                    height: 250,
-                    child: Card(
-                      elevation: 6,
-                      color: Colors.white,
-                      semanticContainer: true,
-                      // Implement InkResponse
-                      child: InkResponse(
-                        containedInkWell: true,
-                        highlightShape: BoxShape.rectangle,
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (BuildContext context) {
-                                return Overview(dog: dog);
-                              },
-                            ),
-                          );
-                        },
-                        // Add image & text
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.network(
-                              dog.image,
-                              width: 220,
-                              height: 180,
-                              fit: BoxFit.fill,
-                            ),
-                            Text(
-                              dog.name,
-                              style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                            Text(dog.breed),
-                            const SizedBox(height: 10)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ],
-        ),
-      )),
+      body: StreamBuilder<List<Dog>>(
+        stream: readDogs(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if(snapshot.hasError){
+            return Text(snapshot.error.toString());
+          }
+            else if(snapshot.hasData) {
+              final dogs = snapshot.data;
+
+              return ListView(
+                children: dogs.map(buildDog).toList(),
+              );
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(

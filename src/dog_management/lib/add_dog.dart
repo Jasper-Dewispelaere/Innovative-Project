@@ -1,4 +1,5 @@
 // ignore_for_file: avoid_print
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dog_management/services/dog_apiservice.dart';
 import 'package:dog_management/services/dog_mockservice.dart';
 import 'package:flutter/material.dart';
@@ -200,10 +201,11 @@ class _AddDogState extends State<AddDog> {
                     child: SizedBox(
                       width: 150,
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (_formKey.currentState!.validate()) {
+                            final docDog = FirebaseFirestore.instance.collection("dogs").doc();
                             Dog newDog = Dog(
-                                id: "uuid.vs4",
+                                id: docDog.id,
                                 name: nameController.text,
                                 breed: breedController.text,
                                 sex: sexController.text,
@@ -211,7 +213,8 @@ class _AddDogState extends State<AddDog> {
                                 image: imageController.text,
                                 color: colorController.text,
                                 walks: [""]);
-                            DogApiService().addDog(newDog);
+                            final json = newDog.toJson();
+                            await docDog.set(json);
                             Navigator.pop(context);
                           }
                         },
