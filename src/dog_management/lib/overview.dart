@@ -5,7 +5,7 @@ import 'models/dog.dart';
 
 class Overview extends StatefulWidget {
   const Overview({Key? key, required this.dog}) : super(key: key);
-  final Dog dog;
+  final dog;
   @override
   State<Overview> createState() => _OverviewState();
 }
@@ -17,10 +17,10 @@ class _OverviewState extends State<Overview> {
     Widget page;
     switch (currentPageIndex) {
       case 0:
-        page = DogOverview(dog: widget.dog);
+        page = DogOverview(dog: widget.dog["data"]);
         break;
       case 1:
-        page = WalkOverview(dog: widget.dog);
+        page = WalkOverview(dog: widget.dog["data"]);
         break;
       default:
         throw UnimplementedError('no widget for $currentPageIndex');

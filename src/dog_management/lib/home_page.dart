@@ -1,6 +1,9 @@
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dog_management/dog_overview.dart';
 import 'package:dog_management/overview.dart';
+import 'package:dog_management/services/dog_firestoreservice.dart';
 import 'package:flutter/material.dart';
 import 'add_dog.dart';
 import 'models/dog.dart';
@@ -14,53 +17,85 @@ class HomePage extends StatefulWidget {
 }
 
 class _ReadDogsState extends State<HomePage> {
-  List<Dog> doggies = [];
 
-  Stream<List<Dog>> readDogs() => FirebaseFirestore.instance
-    .collection('dogs')
-    .snapshots()
-    .map((snapshot) => snapshot.docs.map((doc) => Dog.fromSnapshot(doc)).toList());
-
-  Widget buildDog(Dog dog) => ListTile(
-    leading: CircleAvatar(child: Image.network(dog.image)),
-    title: Text(dog.name),
-    subtitle: Text(dog.breed),
-  );
+  var alldogs = [];
+  final _db = FirebaseFirestore.instance;
 
   @override
   void initState() {
     super.initState();
-    // Move the logic to fetch dogs to the initState method
-    // DogApiService().getAllDogs().then((dogs) {
-    //   setState(() {
-    //     doggies = dogs; // Assign the fetched dogs to the list
-    //   });
-    // }).catchError((error) {
-    //   // ignore: avoid_print
-    //   print('Error fetching dogs: $error');
-    // });
+
+    _db.collection("dogs").get().then(
+      (querySnapshot) {
+        print("Successfully completed");
+        for (var docSnapshot in querySnapshot.docs) {
+          alldogs.add(
+            {'data': docSnapshot.data(), 'id': docSnapshot.id}
+          );
+          print(' id: ${docSnapshot.id} => ${docSnapshot.data()}');
+        }
+      },
+      onError: (e) => print("Error completing: $e"),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder<List<Dog>>(
-        stream: readDogs(),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if(snapshot.hasError){
-            return Text(snapshot.error.toString());
-          }
-            else if(snapshot.hasData) {
-              final dogs = snapshot.data;
-
-              return ListView(
-                children: dogs.map(buildDog).toList(),
-              );
-            } else {
-              return Center(child: CircularProgressIndicator());
-            }
-        },
-      ),
+      body: SingleChildScrollView(
+          child: Center(
+        child: Stack(
+          children: [
+            Wrap(
+              children: [
+                for (var dog in alldogs)
+                  SizedBox(
+                    width: 150,
+                    height: 250,
+                    child: Card(
+                      elevation: 6,
+                      color: Colors.white,
+                      semanticContainer: true,
+                      // Implement InkResponse
+                      child: InkResponse(
+                        containedInkWell: true,
+                        highlightShape: BoxShape.rectangle,
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return Overview(dog: dog["data"]);
+                              },
+                            ),
+                          );
+                        },
+                        // Add image & text
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.network(
+                              dog["data"]["image"],
+                              width: 220,
+                              height: 180,
+                              fit: BoxFit.fill,
+                            ),
+                            Text(
+                              dog["data"]["name"],
+                              style: const TextStyle(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
+                            ),
+                            Text(dog["data"]["breed"]),
+                            const SizedBox(height: 10)
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ],
+        ),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
@@ -71,10 +106,9 @@ class _ReadDogsState extends State<HomePage> {
             ),
           ).then((value) => DogApiService().getAllDogs().then((dogs) {
                 setState(() {
-                  doggies = dogs; // Assign the fetched dogs to the list
+                  alldogs = dogs; // Assign the fetched dogs to the list
                 });
               }).catchError((error) {
-                // ignore: avoid_print
                 print('Error fetching dogs: $error');
               }));
         },
