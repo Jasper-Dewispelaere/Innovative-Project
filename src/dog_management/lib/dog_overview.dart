@@ -1,10 +1,8 @@
-import 'package:dog_management/walk_overview.dart';
 import 'package:flutter/material.dart';
-import 'models/dog.dart';
 
 class DogOverview extends StatefulWidget {
   const DogOverview({Key? key, required this.dog}) : super(key: key);
-  final Dog dog;
+  final dynamic dog;
   @override
   State<DogOverview> createState() => _OverviewState();
 }
@@ -19,12 +17,12 @@ class _OverviewState extends State<DogOverview> {
         children: [
           Center(
             child: Text(
-              widget.dog.name,
+              widget.dog["name"],
               style: const TextStyle(fontSize: 50),
             ),
           ),
           Image.network(
-            widget.dog.image,
+            widget.dog["image"],
             width: 260,
             alignment: Alignment.center,
           ),
@@ -33,7 +31,7 @@ class _OverviewState extends State<DogOverview> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text(
-            widget.dog.breed,
+            widget.dog["breed"],
             style: const TextStyle(fontSize: 15),
           ),
           const Icon(Icons.male),
@@ -42,7 +40,7 @@ class _OverviewState extends State<DogOverview> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text(
-            widget.dog.dateOfBirth,
+            widget.dog["dateOfBirth"],
             style: const TextStyle(fontSize: 15),
           ),
           const Text(
@@ -50,7 +48,7 @@ class _OverviewState extends State<DogOverview> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text(
-            widget.dog.color,
+            widget.dog["color"],
             style: const TextStyle(fontSize: 15),
           ),
         ],

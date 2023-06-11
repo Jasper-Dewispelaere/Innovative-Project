@@ -6,11 +6,22 @@ import '../models/dog.dart';
 
 class DogFirestoreService {
   final _db = FirebaseFirestore.instance;
+  var alldogs = [];
 
-  Future<List<Dog>> allDogs() async {
-    final snapshot = await _db.collection("dogs").get();
-    final dogData = snapshot.docs.map((e) => Dog.fromSnapshot(e)).toList();
-    return dogData;
+  Future<List<dynamic>> allDogs() async {
+    _db.collection("dogs").get().then(
+      (querySnapshot) {
+        print("Successfully completed");
+        for (var docSnapshot in querySnapshot.docs) {
+          alldogs.add(
+            {'data': docSnapshot.data(), 'id': docSnapshot.id}
+          );
+          print(' id: ${docSnapshot.id} => ${docSnapshot.data()}');
+        }
+      },
+      onError: (e) => print("Error completing: $e"),
+    );
+    return alldogs;
   }
 
   Future<Dog> getDogDetails(String name) async {
