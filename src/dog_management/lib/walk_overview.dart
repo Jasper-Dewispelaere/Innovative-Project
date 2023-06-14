@@ -53,7 +53,7 @@ class _OverviewState extends State<WalkOverview> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) {
-                return AddWalk(dog: widget.dog);
+                return AddWalk(dog: widget.dog["data"]);
               },
             ),
           );

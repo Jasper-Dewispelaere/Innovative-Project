@@ -31,6 +31,13 @@ class DogFirestoreService {
     return dogData;
   }
 
+  void deleteDog(dynamic id) async {
+    _db.collection("dogs").doc(id).delete().then(
+      (doc) => print("Document deleted"),
+      onError: (e) => print("Error updating document $e"),
+      );
+  }
+
   void getAllData() {
     _db.collection("dogs").get().then(
       (querySnapshot) {

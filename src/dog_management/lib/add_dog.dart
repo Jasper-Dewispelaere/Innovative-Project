@@ -38,38 +38,6 @@ class _AddDogState extends State<AddDog> {
       }
     }
 
-  // Future<void> createFile(String text) async {
-  //   //provides directory path.
-  //   final directory = await getApplicationDocumentsDirectory();
-  //   //creates text_file in the provided path.
-  //   final file = File('${directory.path}/dog.txt');
-  //   await file.writeAsString(text);
-  // }
-
-  // Future<void> readFile() async {
-  //   try {
-  //     final directory = await getApplicationDocumentsDirectory();
-  //     final file = File('${directory.path}/dog.txt');
-  //     text = await file.readAsString();
-  //   } catch (e) {
-  //     debugPrint('exception');
-  //   }
-  // }
-
-  //for the image, can upload from camera or from gallery
-  // Future _pickImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: source);
-  //     if (image == null) return;
-  //     XFile? img = XFile(image.path);
-  //     setState(() {
-  //       _image = img;
-  //     });
-  //   } on PlatformException catch (e) {
-  //     print(e);
-  //   }
-  // }
-
   @override
   void dispose() {
     textController.dispose();

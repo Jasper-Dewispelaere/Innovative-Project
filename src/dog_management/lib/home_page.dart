@@ -30,10 +30,24 @@ class _ReadDogsState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Dog Management'), actions: <Widget>[
+        Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () async {
+                setState(() {});
+              },
+              child: const Icon(
+                Icons.refresh,
+                size: 26.0,
+              ),
+            )),
+      ]),
       body: SingleChildScrollView(
           child: Center(
         child: Stack(
           children: [
+            // ElevatedButton(onPressed: () async{ setState(() {});}, child: Text('Refresh')),
             Wrap(
               children: [
                 for (var dog in alldogs)

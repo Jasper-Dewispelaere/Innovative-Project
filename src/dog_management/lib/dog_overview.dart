@@ -1,3 +1,4 @@
+import 'package:dog_management/services/dog_firestoreservice.dart';
 import 'package:flutter/material.dart';
 
 class DogOverview extends StatefulWidget {
@@ -53,6 +54,25 @@ class _OverviewState extends State<DogOverview> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.delete),
+        onPressed: () => showDialog<String>(
+          context: context, 
+          builder: (BuildContext context) => AlertDialog(
+            title: const Text('Deleting Warning!'),
+            content: Text('Are you sure you wanna delete ${widget.dog["name"]}? This action can\'t be undone!'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'Cancel'),  
+                child: const Text('No, cancel'),
+              ),
+              TextButton(
+                onPressed: (){DogFirestoreService().deleteDog(widget.dog["id"]); Navigator.of(context).popUntil((route) => route.isFirst);}, 
+                child: const Text('Yes, delete'),
+                )
+            ],
+          ))
+          ),
     );
   }
 }
