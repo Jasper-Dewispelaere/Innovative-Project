@@ -38,7 +38,7 @@ Op de wandeling pagina kan u een wandeling starten en dit volgen op de kaart sam
 
 Via de Homepage kan u ook op een knop drukken om zo een hond toe te voegen met een formulier dat u dan invult met de juiste gegevens, het formulier is ook voorzien op validatie zodat alles wat moet ingevuld worden ook gecontroleerd wordt als het is ingevuld door de gebruiker. 
 
-Alles van informatie, toevoegen en verwijderen van de honden staat in een FIrebase  (meer info [hieronder](#NodeJS - api)), de Flutter app maakt zelf de responses en de requests naar de api en zet alles dan ook om naar de juist data.
+Alles van informatie, toevoegen en verwijderen van de honden staat in een Firebase  (meer info [hieronder](#Firebase - cloud service)), de Flutter app maakt zelf de responses en de requests naar de api en zet alles dan ook om naar de juist data.
 
 #### Technische kant 
 
