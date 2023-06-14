@@ -45,11 +45,8 @@ class _RootPageState extends State<RootPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dog Management'),
-      ),
-      body: const HomePage(),
+    return const Scaffold(
+      body: HomePage(),
     );
   }
 }

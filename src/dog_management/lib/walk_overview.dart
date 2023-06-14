@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'add_walk.dart';
-import 'models/dog.dart';
 
 class WalkOverview extends StatefulWidget {
   const WalkOverview({Key? key, required this.dog}) : super(key: key);
-  final Dog dog;
+  final dynamic dog;
   @override
   State<WalkOverview> createState() => _OverviewState();
 }
@@ -17,7 +16,7 @@ class _OverviewState extends State<WalkOverview> {
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: <Widget>[
-          for (var walk in widget.dog.walks)
+          for (var walk in widget.dog["walks"])
             Center(
               child: Container(
                 height: 100,
@@ -54,7 +53,7 @@ class _OverviewState extends State<WalkOverview> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) {
-                return AddWalk(dog: widget.dog);
+                return AddWalk(dog: widget.dog["data"]);
               },
             ),
           );

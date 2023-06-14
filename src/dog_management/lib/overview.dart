@@ -1,11 +1,11 @@
 import 'package:dog_management/dog_overview.dart';
+import 'package:dog_management/walk_map.dart';
 import 'package:dog_management/walk_overview.dart';
 import 'package:flutter/material.dart';
-import 'models/dog.dart';
 
 class Overview extends StatefulWidget {
   const Overview({Key? key, required this.dog}) : super(key: key);
-  final Dog dog;
+  final dynamic dog;
   @override
   State<Overview> createState() => _OverviewState();
 }
@@ -20,14 +20,14 @@ class _OverviewState extends State<Overview> {
         page = DogOverview(dog: widget.dog);
         break;
       case 1:
-        page = WalkOverview(dog: widget.dog);
+        page = WalkMap(dog: widget.dog);
         break;
       default:
         throw UnimplementedError('no widget for $currentPageIndex');
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.dog.name),
+        title: Text(widget.dog["name"]),
         automaticallyImplyLeading: false, //default back button disable
         leading: IconButton(
           onPressed: () {

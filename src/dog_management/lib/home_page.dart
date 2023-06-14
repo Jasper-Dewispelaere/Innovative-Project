@@ -1,9 +1,8 @@
-import 'package:dog_management/dog_overview.dart';
+// ignore_for_file: avoid_print
 import 'package:dog_management/overview.dart';
+import 'package:dog_management/services/dog_firestoreservice.dart';
 import 'package:flutter/material.dart';
 import 'add_dog.dart';
-import 'models/dog.dart';
-import 'services/dog_apiservice.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,18 +12,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _ReadDogsState extends State<HomePage> {
-  List<Dog> doggies = [];
+  var alldogs = [];
 
   @override
   void initState() {
     super.initState();
-    // Move the logic to fetch dogs to the initState method
-    DogApiService().getAllDogs().then((dogs) {
+
+    DogFirestoreService().allDogs().then((dogs) {
       setState(() {
-        doggies = dogs; // Assign the fetched dogs to the list
+        alldogs = dogs; // Assign the fetched dogs to the list
       });
     }).catchError((error) {
-      // ignore: avoid_print
       print('Error fetching dogs: $error');
     });
   }
@@ -32,13 +30,27 @@ class _ReadDogsState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Dog Management'), actions: <Widget>[
+        Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () async {
+                setState(() {});
+              },
+              child: const Icon(
+                Icons.refresh,
+                size: 26.0,
+              ),
+            )),
+      ]),
       body: SingleChildScrollView(
           child: Center(
         child: Stack(
           children: [
+            // ElevatedButton(onPressed: () async{ setState(() {});}, child: Text('Refresh')),
             Wrap(
               children: [
-                for (var dog in doggies)
+                for (var dog in alldogs)
                   SizedBox(
                     width: 150,
                     height: 250,
@@ -54,7 +66,7 @@ class _ReadDogsState extends State<HomePage> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return Overview(dog: dog);
+                                return Overview(dog: dog["data"]);
                               },
                             ),
                           );
@@ -64,17 +76,17 @@ class _ReadDogsState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Image.network(
-                              dog.image,
+                              dog["data"]["image"],
                               width: 220,
                               height: 180,
                               fit: BoxFit.fill,
                             ),
                             Text(
-                              dog.name,
+                              dog["data"]["name"],
                               style: const TextStyle(
                                   fontSize: 24, fontWeight: FontWeight.bold),
                             ),
-                            Text(dog.breed),
+                            Text(dog["data"]["breed"]),
                             const SizedBox(height: 10)
                           ],
                         ),
@@ -94,12 +106,11 @@ class _ReadDogsState extends State<HomePage> {
                 return const AddDog();
               },
             ),
-          ).then((value) => DogApiService().getAllDogs().then((dogs) {
+          ).then((value) => DogFirestoreService().allDogs().then((dogs) {
                 setState(() {
-                  doggies = dogs; // Assign the fetched dogs to the list
+                  alldogs = dogs; // Assign the fetched dogs to the list
                 });
               }).catchError((error) {
-                // ignore: avoid_print
                 print('Error fetching dogs: $error');
               }));
         },
